@@ -465,21 +465,26 @@ function estilizarMotor() {
       font-size: 15px !important;
     }
     /* Los desplegables de las herramientas llevan la MISMA clase que la barra
-       pero sus iconos son SVG con width/height=40 fijos en el HTML: salian al
-       doble que los de la barra. Se igualan al tamano de la barra. */
-    /* :nth-child(n) sube la especificidad para ganar a la regla de los diez
-       primeros iconos de la barra (que si no, lo deja en 22) */
+       y sus iconos son SVG con width/height=40 fijos en el HTML: salian al
+       doble. NO se puede encoger el SVG: su dibujo interno queda pegado al
+       borde y la salida de la puerta se corta. Se deja la caja como el motor
+       la calcula (40x40, asi no hay recortes ni solapes) y se ESCALA el dibujo. */
     .palette-container > span:nth-child(n) {
-      width: 24px !important;
-      height: 27px !important;
+      /* 40x40 = la caja que calcula el motor. Con menos, el SVG de 40 se sale
+         y la puerta se corta por abajo. El tamano se baja escalando, no midiendo. */
+      width: 40px !important;
+      height: 40px !important;
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
       vertical-align: top !important;
+      overflow: visible !important;
+      transform: scale(0.52) !important;
+      transform-origin: center center !important;
     }
     .palette-container > span > svg {
-      width: 24px !important;
-      height: 24px !important;
+      width: 40px !important;
+      height: 40px !important;
     }
 
     /* OJO: aqui habia un zoom para hacer sitio. NO se puede usar: los
