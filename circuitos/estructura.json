@@ -1,0 +1,2742 @@
+{
+ "3º ESO": {
+  "Conceptos básicos": {
+   "": [
+    {
+     "id": "lrc",
+     "titulo": "LRC Circuit",
+     "estado": "completa",
+     "categoria": "Conceptos básicos",
+     "subcategoria": ""
+    },
+    {
+     "id": "norton",
+     "titulo": "Norton's Theorem",
+     "estado": "completa",
+     "categoria": "Conceptos básicos",
+     "subcategoria": ""
+    },
+    {
+     "id": "ohms",
+     "titulo": "Ohm's Law",
+     "estado": "completa",
+     "categoria": "Conceptos básicos",
+     "subcategoria": ""
+    },
+    {
+     "id": "potdivide",
+     "titulo": "Potentiometer Divider",
+     "estado": "completa",
+     "categoria": "Conceptos básicos",
+     "subcategoria": ""
+    },
+    {
+     "id": "resistors",
+     "titulo": "Resistors",
+     "estado": "completa",
+     "categoria": "Conceptos básicos",
+     "subcategoria": ""
+    },
+    {
+     "id": "thevenin",
+     "titulo": "Thevenin's Theorem",
+     "estado": "completa",
+     "categoria": "Conceptos básicos",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Otros dispositivos": {
+   "Bombilla": [
+    {
+     "id": "lightbulb",
+     "titulo": "Light Bulb",
+     "estado": "completa",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Bombilla"
+    }
+   ]
+  }
+ },
+ "4º ESO": {
+  "Amplificadores operacionales": {
+   "Osciladores": [
+    {
+     "id": "sine",
+     "titulo": "Sine Wave Generator",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Osciladores"
+    }
+   ]
+  },
+  "Conceptos básicos": {
+   "": [
+    {
+     "id": "cap",
+     "titulo": "Capacitor",
+     "estado": "completa",
+     "categoria": "Conceptos básicos",
+     "subcategoria": ""
+    },
+    {
+     "id": "induct",
+     "titulo": "Inductor",
+     "estado": "completa",
+     "categoria": "Conceptos básicos",
+     "subcategoria": ""
+    },
+    {
+     "id": "pot",
+     "titulo": "Potentiometer",
+     "estado": "completa",
+     "categoria": "Conceptos básicos",
+     "subcategoria": ""
+    },
+    {
+     "id": "voltdivide",
+     "titulo": "Voltage Divider",
+     "estado": "completa",
+     "categoria": "Conceptos básicos",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Corriente alterna": {
+   "": [
+    {
+     "id": "capac",
+     "titulo": "Capacitor",
+     "estado": "completa",
+     "categoria": "Corriente alterna",
+     "subcategoria": ""
+    },
+    {
+     "id": "capmultcaps",
+     "titulo": "Caps of Various Capacitances",
+     "estado": "completa",
+     "categoria": "Corriente alterna",
+     "subcategoria": ""
+    },
+    {
+     "id": "capmultfreq",
+     "titulo": "Caps w/ Various Frequencies",
+     "estado": "completa",
+     "categoria": "Corriente alterna",
+     "subcategoria": ""
+    },
+    {
+     "id": "impedance",
+     "titulo": "Impedances of Same Magnitude",
+     "estado": "completa",
+     "categoria": "Corriente alterna",
+     "subcategoria": ""
+    },
+    {
+     "id": "inductac",
+     "titulo": "Inductor",
+     "estado": "completa",
+     "categoria": "Corriente alterna",
+     "subcategoria": ""
+    },
+    {
+     "id": "indmultind",
+     "titulo": "Inductors of Various Inductances",
+     "estado": "completa",
+     "categoria": "Corriente alterna",
+     "subcategoria": ""
+    },
+    {
+     "id": "indmultfreq",
+     "titulo": "Inductors w/ Various Frequencies",
+     "estado": "completa",
+     "categoria": "Corriente alterna",
+     "subcategoria": ""
+    },
+    {
+     "id": "res-par",
+     "titulo": "Parallel Resonance",
+     "estado": "completa",
+     "categoria": "Corriente alterna",
+     "subcategoria": ""
+    },
+    {
+     "id": "res-series",
+     "titulo": "Series Resonance",
+     "estado": "completa",
+     "categoria": "Corriente alterna",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Diodos": {
+   "": [
+    {
+     "id": "amdetect",
+     "titulo": "AM Detector",
+     "estado": "pendiente",
+     "categoria": "Diodos",
+     "subcategoria": ""
+    },
+    {
+     "id": "inductkick-block",
+     "titulo": "Blocking Inductive Kickback",
+     "estado": "pendiente",
+     "categoria": "Diodos",
+     "subcategoria": ""
+    },
+    {
+     "id": "dcrestoration",
+     "titulo": "DC Restoration",
+     "estado": "completa",
+     "categoria": "Diodos",
+     "subcategoria": ""
+    },
+    {
+     "id": "diodevar",
+     "titulo": "Diode",
+     "estado": "completa",
+     "categoria": "Diodos",
+     "subcategoria": ""
+    },
+    {
+     "id": "diodecurve",
+     "titulo": "Diode I/V Curve",
+     "estado": "completa",
+     "categoria": "Diodos",
+     "subcategoria": ""
+    },
+    {
+     "id": "diodelimit",
+     "titulo": "Diode Limiter",
+     "estado": "completa",
+     "categoria": "Diodos",
+     "subcategoria": ""
+    },
+    {
+     "id": "fullrect",
+     "titulo": "Full-Wave Rectifier",
+     "estado": "completa",
+     "categoria": "Diodos",
+     "subcategoria": ""
+    },
+    {
+     "id": "fullrectf",
+     "titulo": "Full-Wave Rectifier w/ Filter",
+     "estado": "completa",
+     "categoria": "Diodos",
+     "subcategoria": ""
+    },
+    {
+     "id": "rectify",
+     "titulo": "Half-Wave Rectifier",
+     "estado": "completa",
+     "categoria": "Diodos",
+     "subcategoria": ""
+    },
+    {
+     "id": "ringmod",
+     "titulo": "Ring Modulator",
+     "estado": "pendiente",
+     "categoria": "Diodos",
+     "subcategoria": ""
+    },
+    {
+     "id": "spikegen",
+     "titulo": "Spike Generator",
+     "estado": "completa",
+     "categoria": "Diodos",
+     "subcategoria": ""
+    },
+    {
+     "id": "sinediode",
+     "titulo": "Triangle-to-Sine Converter",
+     "estado": "pendiente",
+     "categoria": "Diodos",
+     "subcategoria": ""
+    },
+    {
+     "id": "diodeclip",
+     "titulo": "Waveform Clipper",
+     "estado": "pendiente",
+     "categoria": "Diodos",
+     "subcategoria": ""
+    }
+   ],
+   "Diodos Zener": [
+    {
+     "id": "zeneriv",
+     "titulo": "I/V Curve",
+     "estado": "completa",
+     "categoria": "Diodos",
+     "subcategoria": "Diodos Zener"
+    },
+    {
+     "id": "zenerref",
+     "titulo": "Voltage Reference",
+     "estado": "completa",
+     "categoria": "Diodos",
+     "subcategoria": "Diodos Zener"
+    },
+    {
+     "id": "zenerreffollow",
+     "titulo": "Voltage Reference w/ Follower",
+     "estado": "pendiente",
+     "categoria": "Diodos",
+     "subcategoria": "Diodos Zener"
+    }
+   ],
+   "Multiplicadores de tensión": [
+    {
+     "id": "voltdouble",
+     "titulo": "Voltage Doubler",
+     "estado": "completa",
+     "categoria": "Diodos",
+     "subcategoria": "Multiplicadores de tensión"
+    },
+    {
+     "id": "voltdouble2",
+     "titulo": "Voltage Doubler 2",
+     "estado": "pendiente",
+     "categoria": "Diodos",
+     "subcategoria": "Multiplicadores de tensión"
+    },
+    {
+     "id": "voltquad",
+     "titulo": "Voltage Quadrupler",
+     "estado": "pendiente",
+     "categoria": "Diodos",
+     "subcategoria": "Multiplicadores de tensión"
+    },
+    {
+     "id": "volttriple",
+     "titulo": "Voltage Tripler",
+     "estado": "completa",
+     "categoria": "Diodos",
+     "subcategoria": "Multiplicadores de tensión"
+    }
+   ]
+  },
+  "Familias lógicas": {
+   "CMOS": [
+    {
+     "id": "cmosff",
+     "titulo": "CMOS Flip-Flop",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "CMOS"
+    },
+    {
+     "id": "cmosmsff",
+     "titulo": "CMOS Master-Slave Flip-Flop",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "CMOS"
+    },
+    {
+     "id": "cmosnand",
+     "titulo": "CMOS NAND",
+     "estado": "completa",
+     "categoria": "Familias lógicas",
+     "subcategoria": "CMOS"
+    },
+    {
+     "id": "cmosnor",
+     "titulo": "CMOS NOR",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "CMOS"
+    },
+    {
+     "id": "cmosxor",
+     "titulo": "CMOS XOR",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "CMOS"
+    }
+   ],
+   "DTL": [
+    {
+     "id": "dtlinverter",
+     "titulo": "DTL Inverter",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "DTL"
+    },
+    {
+     "id": "dtlnand",
+     "titulo": "DTL NAND",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "DTL"
+    },
+    {
+     "id": "dtlnor",
+     "titulo": "DTL NOR",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "DTL"
+    }
+   ],
+   "ECL": [
+    {
+     "id": "eclnor",
+     "titulo": "ECL NOR/OR",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "ECL"
+    }
+   ],
+   "NMOS": [
+    {
+     "id": "nmosinverter3",
+     "titulo": "Depletion-load NMOS Inverter",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "NMOS"
+    },
+    {
+     "id": "nmosinverter2",
+     "titulo": "Inverter with only MOSFETs",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "NMOS"
+    },
+    {
+     "id": "nmosinverter",
+     "titulo": "NMOS Inverter",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "NMOS"
+    },
+    {
+     "id": "nmosnand",
+     "titulo": "NMOS NAND",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "NMOS"
+    }
+   ],
+   "RTL": [
+    {
+     "id": "rtlinverter",
+     "titulo": "RTL Inverter",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "RTL"
+    },
+    {
+     "id": "rtlnand",
+     "titulo": "RTL NAND",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "RTL"
+    },
+    {
+     "id": "rtlnor",
+     "titulo": "RTL NOR",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "RTL"
+    }
+   ],
+   "TTL": [
+    {
+     "id": "fanout",
+     "titulo": "Fan-Out",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "TTL"
+    },
+    {
+     "id": "ttlinverter",
+     "titulo": "TTL Inverter",
+     "estado": "completa",
+     "categoria": "Familias lógicas",
+     "subcategoria": "TTL"
+    },
+    {
+     "id": "ttlnand",
+     "titulo": "TTL NAND",
+     "estado": "completa",
+     "categoria": "Familias lógicas",
+     "subcategoria": "TTL"
+    },
+    {
+     "id": "ttlnor",
+     "titulo": "TTL NOR",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "TTL"
+    }
+   ],
+   "Ternaria": [
+    {
+     "id": "3-cgand",
+     "titulo": "CGAND",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "Ternaria"
+    },
+    {
+     "id": "3-cgor",
+     "titulo": "CGOR",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "Ternaria"
+    },
+    {
+     "id": "3-invert",
+     "titulo": "Complement (F210)",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "Ternaria"
+    },
+    {
+     "id": "3-f211",
+     "titulo": "F211",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "Ternaria"
+    },
+    {
+     "id": "3-f220",
+     "titulo": "F220",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "Ternaria"
+    },
+    {
+     "id": "3-f221",
+     "titulo": "F221",
+     "estado": "pendiente",
+     "categoria": "Familias lógicas",
+     "subcategoria": "Ternaria"
+    }
+   ]
+  },
+  "Filtros pasivos": {
+   "": [
+    {
+     "id": "bandpass",
+     "titulo": "Band-pass Filter",
+     "estado": "completa",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "bandnoise",
+     "titulo": "Band-pass w/ Noise",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "ringing",
+     "titulo": "Band-pass with Ringing",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "besselbutter",
+     "titulo": "Bessel vs Butterworth",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "butterbandstop",
+     "titulo": "Butterworth Band-Stop",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "butter10hi",
+     "titulo": "Butterworth High-Pass (10 pole)",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "butter10hiaud",
+     "titulo": "Butterworth High-Pass w/ Noise",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "butter10lo",
+     "titulo": "Butterworth Low-Pass (10 pole)",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "butter10loaud",
+     "titulo": "Butterworth Low-Pass w/ Noise",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "comb",
+     "titulo": "Comb Filter",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "crossover",
+     "titulo": "Crossover",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "filt-hipass",
+     "titulo": "High-Pass Filter (RC)",
+     "estado": "completa",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "filt-hipass-l",
+     "titulo": "High-Pass Filter (RL)",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "filt-lopass",
+     "titulo": "Low-Pass Filter (RC)",
+     "estado": "completa",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "filt-lopass-l",
+     "titulo": "Low-Pass Filter (RL)",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "notch",
+     "titulo": "Notch Filter",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "twint",
+     "titulo": "Twin-T Filter",
+     "estado": "pendiente",
+     "categoria": "Filtros pasivos",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Lógica combinacional": {
+   "": [
+    {
+     "id": "decoder",
+     "titulo": "1-of-4 Decoder",
+     "estado": "pendiente",
+     "categoria": "Lógica combinacional",
+     "subcategoria": ""
+    },
+    {
+     "id": "digcompare",
+     "titulo": "2-Bit Comparator",
+     "estado": "pendiente",
+     "categoria": "Lógica combinacional",
+     "subcategoria": ""
+    },
+    {
+     "id": "mux3state",
+     "titulo": "2-to-1 Mux",
+     "estado": "pendiente",
+     "categoria": "Lógica combinacional",
+     "subcategoria": ""
+    },
+    {
+     "id": "7segdecoder",
+     "titulo": "7-Segment LED Decoder",
+     "estado": "pendiente",
+     "categoria": "Lógica combinacional",
+     "subcategoria": ""
+    },
+    {
+     "id": "alu74181",
+     "titulo": "74181 ALU",
+     "estado": "pendiente",
+     "categoria": "Lógica combinacional",
+     "subcategoria": ""
+    },
+    {
+     "id": "brentkung",
+     "titulo": "Brent-Kung Adder",
+     "estado": "pendiente",
+     "categoria": "Lógica combinacional",
+     "subcategoria": ""
+    },
+    {
+     "id": "xor",
+     "titulo": "Exclusive OR",
+     "estado": "completa",
+     "categoria": "Lógica combinacional",
+     "subcategoria": ""
+    },
+    {
+     "id": "fulladd",
+     "titulo": "Full Adder",
+     "estado": "completa",
+     "categoria": "Lógica combinacional",
+     "subcategoria": ""
+    },
+    {
+     "id": "halfadd",
+     "titulo": "Half Adder",
+     "estado": "completa",
+     "categoria": "Lógica combinacional",
+     "subcategoria": ""
+    },
+    {
+     "id": "majority",
+     "titulo": "Majority Logic",
+     "estado": "pendiente",
+     "categoria": "Lógica combinacional",
+     "subcategoria": ""
+    },
+    {
+     "id": "priencoder",
+     "titulo": "Priority Encoder",
+     "estado": "pendiente",
+     "categoria": "Lógica combinacional",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Lógica secuencial": {
+   "": [
+    {
+     "id": "traffic",
+     "titulo": "Traffic Light",
+     "estado": "completa",
+     "categoria": "Lógica secuencial",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Otros circuitos pasivos": {
+   "": [
+    {
+     "id": "4way",
+     "titulo": "3- and 4-Way Light Switches",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "3phasewye",
+     "titulo": "3-Phase Wye-Wye Balanced Load",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "3way",
+     "titulo": "3-Way Light Switches",
+     "estado": "completa",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "inductkick-snub",
+     "titulo": "Blocking Inductive Kickback",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "lrc-critical",
+     "titulo": "Critically Damped LRC",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "currentsrcelm",
+     "titulo": "Current Source",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "diff",
+     "titulo": "Differentiator",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "inductkick",
+     "titulo": "Inductive Kickback",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "phaseseq",
+     "titulo": "Phase-Sequence Network",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "powerfactor1",
+     "titulo": "Power Factor",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "powerfactor2",
+     "titulo": "Power Factor Correction",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "cube",
+     "titulo": "Resistor Cube",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "grid",
+     "titulo": "Resistor Grid",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "grid2",
+     "titulo": "Resistor Grid 2",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "wheatstone",
+     "titulo": "Wheatstone Bridge",
+     "estado": "completa",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": ""
+    }
+   ],
+   "Circuitos LC acoplados": [
+    {
+     "id": "ladder",
+     "titulo": "LC Ladder",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Circuitos LC acoplados"
+    },
+    {
+     "id": "coupled1",
+     "titulo": "LC Modes (2)",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Circuitos LC acoplados"
+    },
+    {
+     "id": "coupled3",
+     "titulo": "LC Modes (3)",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Circuitos LC acoplados"
+    },
+    {
+     "id": "coupled2",
+     "titulo": "Weak Coupling",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Circuitos LC acoplados"
+    }
+   ],
+   "Relés": [
+    {
+     "id": "relay",
+     "titulo": "Relay",
+     "estado": "completa",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Relés"
+    },
+    {
+     "id": "relayand",
+     "titulo": "Relay AND",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Relés"
+    },
+    {
+     "id": "relayctr",
+     "titulo": "Relay Counter",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Relés"
+    },
+    {
+     "id": "relayff",
+     "titulo": "Relay Flip-Flop",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Relés"
+    },
+    {
+     "id": "relaymux",
+     "titulo": "Relay Mux",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Relés"
+    },
+    {
+     "id": "relayor",
+     "titulo": "Relay OR",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Relés"
+    },
+    {
+     "id": "relayosc",
+     "titulo": "Relay Oscillator",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Relés"
+    },
+    {
+     "id": "relaytff",
+     "titulo": "Relay Toggle Flip-Flop",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Relés"
+    },
+    {
+     "id": "relayxor",
+     "titulo": "Relay XOR",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Relés"
+    }
+   ],
+   "Serie y paralelo": [
+    {
+     "id": "cappar",
+     "titulo": "Caps in Parallel",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Serie y paralelo"
+    },
+    {
+     "id": "capseries",
+     "titulo": "Caps in Series",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Serie y paralelo"
+    },
+    {
+     "id": "indpar",
+     "titulo": "Inductors in Parallel",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Serie y paralelo"
+    },
+    {
+     "id": "indseries",
+     "titulo": "Inductors in Series",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Serie y paralelo"
+    }
+   ],
+   "Transformadores": [
+    {
+     "id": "longdist",
+     "titulo": "Long-Distance Power Transmission",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Transformadores"
+    },
+    {
+     "id": "satcore-comparison",
+     "titulo": "Low vs High Drive (AC Saturation)",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Transformadores"
+    },
+    {
+     "id": "satcore-inductor",
+     "titulo": "Saturable vs Linear Inductor (DC)",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Transformadores"
+    },
+    {
+     "id": "transformerdown",
+     "titulo": "Step-Down Transformer",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Transformadores"
+    },
+    {
+     "id": "transformerup",
+     "titulo": "Step-Up Transformer",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Transformadores"
+    },
+    {
+     "id": "transformer",
+     "titulo": "Transformer",
+     "estado": "completa",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Transformadores"
+    },
+    {
+     "id": "transformerdc",
+     "titulo": "Transformer w/ DC",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Transformadores"
+    },
+    {
+     "id": "satcore-transformer",
+     "titulo": "Transformer with Saturable Core",
+     "estado": "pendiente",
+     "categoria": "Otros circuitos pasivos",
+     "subcategoria": "Transformadores"
+    }
+   ]
+  },
+  "Temporizador 555": {
+   "": [
+    {
+     "id": "555dutycycle",
+     "titulo": "Adjustable Duty Cycle Oscillator",
+     "estado": "pendiente",
+     "categoria": "Temporizador 555",
+     "subcategoria": ""
+    },
+    {
+     "id": "555int",
+     "titulo": "Internals",
+     "estado": "completa",
+     "categoria": "Temporizador 555",
+     "subcategoria": ""
+    },
+    {
+     "id": "555lowduty",
+     "titulo": "Low-duty-cycle Oscillator",
+     "estado": "pendiente",
+     "categoria": "Temporizador 555",
+     "subcategoria": ""
+    },
+    {
+     "id": "555missing",
+     "titulo": "Missing Pulse Detector",
+     "estado": "pendiente",
+     "categoria": "Temporizador 555",
+     "subcategoria": ""
+    },
+    {
+     "id": "555monostable",
+     "titulo": "Monostable Multivibrator",
+     "estado": "completa",
+     "categoria": "Temporizador 555",
+     "subcategoria": ""
+    },
+    {
+     "id": "555sequencer",
+     "titulo": "Pulse Sequencer",
+     "estado": "pendiente",
+     "categoria": "Temporizador 555",
+     "subcategoria": ""
+    },
+    {
+     "id": "555pulsemod",
+     "titulo": "Pulse Width Modulator",
+     "estado": "pendiente",
+     "categoria": "Temporizador 555",
+     "subcategoria": ""
+    },
+    {
+     "id": "555saw",
+     "titulo": "Sawtooth Oscillator",
+     "estado": "pendiente",
+     "categoria": "Temporizador 555",
+     "subcategoria": ""
+    },
+    {
+     "id": "555schmitt",
+     "titulo": "Schmitt Trigger (inverting)",
+     "estado": "pendiente",
+     "categoria": "Temporizador 555",
+     "subcategoria": ""
+    },
+    {
+     "id": "555square",
+     "titulo": "Square Wave Generator",
+     "estado": "completa",
+     "categoria": "Temporizador 555",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Transistores": {
+   "": [
+    {
+     "id": "ceamp",
+     "titulo": "Common-Emitter Amplifier",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "mirror",
+     "titulo": "Current Mirror",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "currentsrc",
+     "titulo": "Current Source",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "currentsrcramp",
+     "titulo": "Current Source Ramp",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "darlington",
+     "titulo": "Darlington Pair",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "early",
+     "titulo": "Early Effect",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "follower",
+     "titulo": "Emitter Follower",
+     "estado": "completa",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "transrectifier",
+     "titulo": "Full-Wave Rectifier",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "gilbertcell",
+     "titulo": "Gilbert Cell Multiplier",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "joule-thief",
+     "titulo": "Joule Thief",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "npn",
+     "titulo": "NPN Transistor",
+     "estado": "completa",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "pnp",
+     "titulo": "PNP Transistor",
+     "estado": "completa",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "schmitt",
+     "titulo": "Schmitt Trigger",
+     "estado": "completa",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "transswitch",
+     "titulo": "Switch",
+     "estado": "completa",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "rmsconverter",
+     "titulo": "True RMS Converter",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    },
+    {
+     "id": "phasesplit",
+     "titulo": "Unity-Gain Phase Splitter",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": ""
+    }
+   ],
+   "Amplificadores diferenciales": [
+    {
+     "id": "trans-diffamp-common",
+     "titulo": "Common-Mode Input",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": "Amplificadores diferenciales"
+    },
+    {
+     "id": "trans-diffamp-cursrc",
+     "titulo": "Common-Mode w/Current Source",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": "Amplificadores diferenciales"
+    },
+    {
+     "id": "trans-diffamp",
+     "titulo": "Differential Input",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": "Amplificadores diferenciales"
+    }
+   ],
+   "Multivibradores": [
+    {
+     "id": "multivib-a",
+     "titulo": "Astable Multivib",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": "Multivibradores"
+    },
+    {
+     "id": "multivib-bi",
+     "titulo": "Bistable Multivib (Flip-Flop)",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": "Multivibradores"
+    },
+    {
+     "id": "multivib-mono",
+     "titulo": "Monostable Multivib (One-Shot)",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": "Multivibradores"
+    }
+   ],
+   "Osciladores": [
+    {
+     "id": "colpitts",
+     "titulo": "Colpitts Oscillator",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": "Osciladores"
+    },
+    {
+     "id": "crystalosc2",
+     "titulo": "Crystal Oscillator",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": "Osciladores"
+    },
+    {
+     "id": "eclosc",
+     "titulo": "Emitter-Coupled LC Oscillator",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": "Osciladores"
+    },
+    {
+     "id": "hartley",
+     "titulo": "Hartley Oscillator",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": "Osciladores"
+    }
+   ],
+   "Seguidor push-pull": [
+    {
+     "id": "pushpull",
+     "titulo": "Improved",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": "Seguidor push-pull"
+    },
+    {
+     "id": "pushpullxover",
+     "titulo": "Simple, with distortion",
+     "estado": "pendiente",
+     "categoria": "Transistores",
+     "subcategoria": "Seguidor push-pull"
+    }
+   ]
+  }
+ },
+ "Bachillerato": {
+  "Amplificadores operacionales": {
+   "": [
+    {
+     "id": "opint-invert-amp",
+     "titulo": "741 (inverting amplifier)",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "opint-current",
+     "titulo": "741 Current Limits",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "opint",
+     "titulo": "741 Internals",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "opint-slew",
+     "titulo": "741 Slew Rate",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "capmult",
+     "titulo": "Capacitance Multiplier",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "delta-pwm",
+     "titulo": "Delta PWM Encoder",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "amp-dfdx",
+     "titulo": "Differentiator (inverting)",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "amp-fullrect",
+     "titulo": "Full-Wave Rectifier",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "gyrator",
+     "titulo": "Gyrator",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "amp-rect",
+     "titulo": "Half-Wave Rectifier (inverting)",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "howland",
+     "titulo": "Howland Current Source",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "itov",
+     "titulo": "I-to-V Converter",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "amp-integ",
+     "titulo": "Integrator",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "nic-r",
+     "titulo": "Negative Impedance Converter",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "opamp",
+     "titulo": "Op-Amp",
+     "estado": "completa",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "opampfeedback",
+     "titulo": "Op-Amp Feedback",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "peak-detect",
+     "titulo": "Peak Detector",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "amp-schmitt",
+     "titulo": "Schmitt Trigger",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    },
+    {
+     "id": "opamp-regulator",
+     "titulo": "Voltage Regulator",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": ""
+    }
+   ],
+   "Amplificadores": [
+    {
+     "id": "classd",
+     "titulo": "Class-D Amplifier",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Amplificadores"
+    },
+    {
+     "id": "amp-diff",
+     "titulo": "Differential Amplifier",
+     "estado": "completa",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Amplificadores"
+    },
+    {
+     "id": "amp-follower",
+     "titulo": "Follower",
+     "estado": "completa",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Amplificadores"
+    },
+    {
+     "id": "amp-invert",
+     "titulo": "Inverting Amplifier",
+     "estado": "completa",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Amplificadores"
+    },
+    {
+     "id": "logconvert",
+     "titulo": "Log Amplifier",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Amplificadores"
+    },
+    {
+     "id": "amp-noninvert",
+     "titulo": "Noninverting Amplifier",
+     "estado": "completa",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Amplificadores"
+    },
+    {
+     "id": "amp-sum",
+     "titulo": "Summing Amplifier",
+     "estado": "completa",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Amplificadores"
+    }
+   ],
+   "Circuitos caóticos": [
+    {
+     "id": "chaos1",
+     "titulo": "Chaos 1",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Circuitos caóticos"
+    },
+    {
+     "id": "chaos2",
+     "titulo": "Chaos 2",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Circuitos caóticos"
+    },
+    {
+     "id": "chua",
+     "titulo": "Chua",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Circuitos caóticos"
+    },
+    {
+     "id": "jerk",
+     "titulo": "Jerk",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Circuitos caóticos"
+    },
+    {
+     "id": "rossler",
+     "titulo": "Rossler",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Circuitos caóticos"
+    },
+    {
+     "id": "vilnius",
+     "titulo": "Vilnius",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Circuitos caóticos"
+    }
+   ],
+   "Osciladores": [
+    {
+     "id": "phaseshiftosc",
+     "titulo": "Phase-Shift Oscillator",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Osciladores"
+    },
+    {
+     "id": "relaxosc",
+     "titulo": "Relaxation Oscillator",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Osciladores"
+    },
+    {
+     "id": "sawtooth",
+     "titulo": "Sawtooth Wave Generator",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Osciladores"
+    },
+    {
+     "id": "trianglevco",
+     "titulo": "Triangle VCO",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Osciladores"
+    },
+    {
+     "id": "triangle",
+     "titulo": "Triangle Wave Generator",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Osciladores"
+    },
+    {
+     "id": "vco",
+     "titulo": "Voltage-Controlled Oscillator",
+     "estado": "pendiente",
+     "categoria": "Amplificadores operacionales",
+     "subcategoria": "Osciladores"
+    }
+   ]
+  },
+  "Analógico y digital": {
+   "": [
+    {
+     "id": "dac",
+     "titulo": "Binary-Weighted DAC",
+     "estado": "pendiente",
+     "categoria": "Analógico y digital",
+     "subcategoria": ""
+    },
+    {
+     "id": "deltasigma",
+     "titulo": "Delta-Sigma ADC",
+     "estado": "pendiente",
+     "categoria": "Analógico y digital",
+     "subcategoria": ""
+    },
+    {
+     "id": "digsine",
+     "titulo": "Digital Sine Wave",
+     "estado": "pendiente",
+     "categoria": "Analógico y digital",
+     "subcategoria": ""
+    },
+    {
+     "id": "flashadc",
+     "titulo": "Flash ADC",
+     "estado": "pendiente",
+     "categoria": "Analógico y digital",
+     "subcategoria": ""
+    },
+    {
+     "id": "hfadc",
+     "titulo": "Half-Flash (Subranging) ADC",
+     "estado": "pendiente",
+     "categoria": "Analógico y digital",
+     "subcategoria": ""
+    },
+    {
+     "id": "qam-256",
+     "titulo": "QAM-256 Modulator/Demodulator",
+     "estado": "pendiente",
+     "categoria": "Analógico y digital",
+     "subcategoria": ""
+    },
+    {
+     "id": "r2rladder",
+     "titulo": "R-2R Ladder DAC",
+     "estado": "pendiente",
+     "categoria": "Analógico y digital",
+     "subcategoria": ""
+    },
+    {
+     "id": "swtreedac",
+     "titulo": "Switch-Tree DAC",
+     "estado": "pendiente",
+     "categoria": "Analógico y digital",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Bucles de enganche de fase": {
+   "": [
+    {
+     "id": "freqdouble",
+     "titulo": "Frequency Doubler",
+     "estado": "pendiente",
+     "categoria": "Bucles de enganche de fase",
+     "subcategoria": ""
+    },
+    {
+     "id": "phasecomp",
+     "titulo": "Phase Comparator (Type II)",
+     "estado": "pendiente",
+     "categoria": "Bucles de enganche de fase",
+     "subcategoria": ""
+    },
+    {
+     "id": "phasecompint",
+     "titulo": "Phase Comparator Internals",
+     "estado": "pendiente",
+     "categoria": "Bucles de enganche de fase",
+     "subcategoria": ""
+    },
+    {
+     "id": "pll",
+     "titulo": "Type I PLL",
+     "estado": "pendiente",
+     "categoria": "Bucles de enganche de fase",
+     "subcategoria": ""
+    },
+    {
+     "id": "pll2",
+     "titulo": "Type II PLL",
+     "estado": "pendiente",
+     "categoria": "Bucles de enganche de fase",
+     "subcategoria": ""
+    },
+    {
+     "id": "pll2a",
+     "titulo": "Type II PLL (fast)",
+     "estado": "pendiente",
+     "categoria": "Bucles de enganche de fase",
+     "subcategoria": ""
+    },
+    {
+     "id": "xorphasedet",
+     "titulo": "XOR Phase Detector",
+     "estado": "pendiente",
+     "categoria": "Bucles de enganche de fase",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Convertidores de potencia": {
+   "": [
+    {
+     "id": "conv-boost",
+     "titulo": "Boost Converter",
+     "estado": "pendiente",
+     "categoria": "Convertidores de potencia",
+     "subcategoria": ""
+    },
+    {
+     "id": "conv-buck",
+     "titulo": "Buck Converter",
+     "estado": "pendiente",
+     "categoria": "Convertidores de potencia",
+     "subcategoria": ""
+    },
+    {
+     "id": "conv-buckboost",
+     "titulo": "Buck-Boost Converter",
+     "estado": "pendiente",
+     "categoria": "Convertidores de potencia",
+     "subcategoria": ""
+    },
+    {
+     "id": "conv-sepic",
+     "titulo": "SEPIC Converter",
+     "estado": "pendiente",
+     "categoria": "Convertidores de potencia",
+     "subcategoria": ""
+    },
+    {
+     "id": "conv-cuk",
+     "titulo": "Ćuk Converter",
+     "estado": "pendiente",
+     "categoria": "Convertidores de potencia",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Filtros activos": {
+   "": [
+    {
+     "id": "allpass1",
+     "titulo": "Allpass",
+     "estado": "pendiente",
+     "categoria": "Filtros activos",
+     "subcategoria": ""
+    },
+    {
+     "id": "allpass2",
+     "titulo": "Allpass w/ Square",
+     "estado": "pendiente",
+     "categoria": "Filtros activos",
+     "subcategoria": ""
+    },
+    {
+     "id": "actbutterband",
+     "titulo": "Butterworth Band-Pass",
+     "estado": "pendiente",
+     "categoria": "Filtros activos",
+     "subcategoria": ""
+    },
+    {
+     "id": "actbutterhi",
+     "titulo": "Butterworth High-Pass",
+     "estado": "pendiente",
+     "categoria": "Filtros activos",
+     "subcategoria": ""
+    },
+    {
+     "id": "actbutterlo",
+     "titulo": "Butterworth Low-Pass",
+     "estado": "pendiente",
+     "categoria": "Filtros activos",
+     "subcategoria": ""
+    },
+    {
+     "id": "switchedcap",
+     "titulo": "Switched-Capacitor Filter",
+     "estado": "pendiente",
+     "categoria": "Filtros activos",
+     "subcategoria": ""
+    },
+    {
+     "id": "filt-vcvs-hipass",
+     "titulo": "VCVS High-Pass Filter",
+     "estado": "pendiente",
+     "categoria": "Filtros activos",
+     "subcategoria": ""
+    },
+    {
+     "id": "filt-vcvs-lopass",
+     "titulo": "VCVS Low-Pass Filter",
+     "estado": "pendiente",
+     "categoria": "Filtros activos",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Fuentes controladas": {
+   "": [
+    {
+     "id": "cs-currentadder",
+     "titulo": "CCS Current Adder",
+     "estado": "pendiente",
+     "categoria": "Fuentes controladas",
+     "subcategoria": ""
+    },
+    {
+     "id": "cs-resistor",
+     "titulo": "CCS Resistor",
+     "estado": "pendiente",
+     "categoria": "Fuentes controladas",
+     "subcategoria": ""
+    },
+    {
+     "id": "cs-varicap",
+     "titulo": "CCS Variable Capacitor",
+     "estado": "pendiente",
+     "categoria": "Fuentes controladas",
+     "subcategoria": ""
+    },
+    {
+     "id": "cs-varinduct",
+     "titulo": "CCS Variable Inductor",
+     "estado": "pendiente",
+     "categoria": "Fuentes controladas",
+     "subcategoria": ""
+    },
+    {
+     "id": "cs-varyresistor",
+     "titulo": "CCS Varying Resistor",
+     "estado": "pendiente",
+     "categoria": "Fuentes controladas",
+     "subcategoria": ""
+    },
+    {
+     "id": "cs-diff",
+     "titulo": "CVS Differentiator",
+     "estado": "pendiente",
+     "categoria": "Fuentes controladas",
+     "subcategoria": ""
+    },
+    {
+     "id": "cs-fullrectifier",
+     "titulo": "CVS Full Rectifier",
+     "estado": "pendiente",
+     "categoria": "Fuentes controladas",
+     "subcategoria": ""
+    },
+    {
+     "id": "cs-integrator",
+     "titulo": "CVS Integrator",
+     "estado": "pendiente",
+     "categoria": "Fuentes controladas",
+     "subcategoria": ""
+    },
+    {
+     "id": "cs-opamp",
+     "titulo": "CVS Op-Amp",
+     "estado": "pendiente",
+     "categoria": "Fuentes controladas",
+     "subcategoria": ""
+    },
+    {
+     "id": "cs-ramp",
+     "titulo": "CVS Voltage Ramp",
+     "estado": "pendiente",
+     "categoria": "Fuentes controladas",
+     "subcategoria": ""
+    },
+    {
+     "id": "cs-multiplier",
+     "titulo": "VCVS Multiplier",
+     "estado": "pendiente",
+     "categoria": "Fuentes controladas",
+     "subcategoria": ""
+    },
+    {
+     "id": "cs-opamprail",
+     "titulo": "VCVS Op-Amp With Rails",
+     "estado": "pendiente",
+     "categoria": "Fuentes controladas",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Líneas de transmisión": {
+   "": [
+    {
+     "id": "tlmatch1",
+     "titulo": "Impedance Matching (L-Section)",
+     "estado": "pendiente",
+     "categoria": "Líneas de transmisión",
+     "subcategoria": ""
+    },
+    {
+     "id": "tlmatch2",
+     "titulo": "Impedance Matching (Shunt Stub)",
+     "estado": "pendiente",
+     "categoria": "Líneas de transmisión",
+     "subcategoria": ""
+    },
+    {
+     "id": "tllight",
+     "titulo": "Light Switch",
+     "estado": "pendiente",
+     "categoria": "Líneas de transmisión",
+     "subcategoria": ""
+    },
+    {
+     "id": "tllopass",
+     "titulo": "Low-Pass Filter",
+     "estado": "pendiente",
+     "categoria": "Líneas de transmisión",
+     "subcategoria": ""
+    },
+    {
+     "id": "tlmismatch",
+     "titulo": "Mismatched lines (Pulse)",
+     "estado": "pendiente",
+     "categoria": "Líneas de transmisión",
+     "subcategoria": ""
+    },
+    {
+     "id": "tlmis1",
+     "titulo": "Mismatched lines (Standing Wave)",
+     "estado": "pendiente",
+     "categoria": "Líneas de transmisión",
+     "subcategoria": ""
+    },
+    {
+     "id": "tl",
+     "titulo": "Simple TL",
+     "estado": "pendiente",
+     "categoria": "Líneas de transmisión",
+     "subcategoria": ""
+    },
+    {
+     "id": "tlstand",
+     "titulo": "Standing Wave",
+     "estado": "pendiente",
+     "categoria": "Líneas de transmisión",
+     "subcategoria": ""
+    },
+    {
+     "id": "tlfreq",
+     "titulo": "Stub Frequency Response",
+     "estado": "pendiente",
+     "categoria": "Líneas de transmisión",
+     "subcategoria": ""
+    },
+    {
+     "id": "tlterm",
+     "titulo": "Termination",
+     "estado": "pendiente",
+     "categoria": "Líneas de transmisión",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Lógica secuencial": {
+   "": [
+    {
+     "id": "divideby2",
+     "titulo": "Divide-by-2",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": ""
+    },
+    {
+     "id": "divideby3",
+     "titulo": "Divide-by-3",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": ""
+    },
+    {
+     "id": "dram",
+     "titulo": "Dynamic RAM",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": ""
+    },
+    {
+     "id": "ledflasher",
+     "titulo": "LED Flasher",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": ""
+    },
+    {
+     "id": "sram",
+     "titulo": "Static RAM",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": ""
+    }
+   ],
+   "Biestables": [
+    {
+     "id": "clockedsrff",
+     "titulo": "Clocked SR Flip-Flop",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Biestables"
+    },
+    {
+     "id": "edgedff",
+     "titulo": "Edge-Triggered D Flip-Flop",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Biestables"
+    },
+    {
+     "id": "jkff",
+     "titulo": "JK Flip-Flop",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Biestables"
+    },
+    {
+     "id": "masterslaveff",
+     "titulo": "Master-Slave Flip-Flop",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Biestables"
+    },
+    {
+     "id": "nandff",
+     "titulo": "SR Flip-Flop",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Biestables"
+    }
+   ],
+   "CPU TD4": [
+    {
+     "id": "td4-add2",
+     "titulo": "TD4 Add 2",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "CPU TD4"
+    },
+    {
+     "id": "td4-ctr",
+     "titulo": "TD4 Counter",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "CPU TD4"
+    },
+    {
+     "id": "td4-ctr-dn",
+     "titulo": "TD4 Down Counter",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "CPU TD4"
+    },
+    {
+     "id": "td4",
+     "titulo": "TD4 LED Strobe",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "CPU TD4"
+    },
+    {
+     "id": "td4-ctr-up-dn",
+     "titulo": "TD4 Up-Down Counter",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "CPU TD4"
+    }
+   ],
+   "Contadores": [
+    {
+     "id": "counter",
+     "titulo": "4-Bit Ripple Counter",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Contadores"
+    },
+    {
+     "id": "counter8",
+     "titulo": "8-Bit Ripple Counter",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Contadores"
+    },
+    {
+     "id": "ringcascade",
+     "titulo": "Cascading Ring Counters",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Contadores"
+    },
+    {
+     "id": "deccounter",
+     "titulo": "Decimal Counter",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Contadores"
+    },
+    {
+     "id": "graycode",
+     "titulo": "Gray Code Counter",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Contadores"
+    },
+    {
+     "id": "johnsonctr",
+     "titulo": "Johnson Counter",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Contadores"
+    },
+    {
+     "id": "synccounter",
+     "titulo": "Synchronous Counter",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Contadores"
+    },
+    {
+     "id": "updownctr",
+     "titulo": "Up/Down Counter",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Contadores"
+    }
+   ],
+   "Registros de desplazamiento": [
+    {
+     "id": "piso-sr",
+     "titulo": "Parallel-In Serial-Out",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Registros de desplazamiento"
+    },
+    {
+     "id": "sipo-sr",
+     "titulo": "Serial-In Parallel-Out",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Registros de desplazamiento"
+    },
+    {
+     "id": "unishiftreg",
+     "titulo": "Universal",
+     "estado": "pendiente",
+     "categoria": "Lógica secuencial",
+     "subcategoria": "Registros de desplazamiento"
+    }
+   ]
+  },
+  "MOSFET": {
+   "": [
+    {
+     "id": "crystalosc",
+     "titulo": "CMOS Crystal Oscillator",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "cmosinverter",
+     "titulo": "CMOS Inverter",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "cmosinverterslow",
+     "titulo": "CMOS Inverter (slow transition)",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "cmosinvertercap",
+     "titulo": "CMOS Inverter (w/capacitance)",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "mux",
+     "titulo": "CMOS Multiplexer",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "cmostransgate",
+     "titulo": "CMOS Transmission Gate",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "mosfetamp",
+     "titulo": "Common-Source Amplifier",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "mosmirror",
+     "titulo": "Current Mirror",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "moscurrentramp",
+     "titulo": "Current Ramp",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "moscurrentsrc",
+     "titulo": "Current Source",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "delayrc",
+     "titulo": "Delayed Buffer",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "invertamp",
+     "titulo": "Inverter Amplifier",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "inv-osc",
+     "titulo": "Inverter Oscillator",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "leadingedge",
+     "titulo": "Leading-Edge Detector",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "nmosfet",
+     "titulo": "n-MOSFET",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "pmosfet",
+     "titulo": "p-MOSFET",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "samplenhold",
+     "titulo": "Sample-and-Hold",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "mosfollower",
+     "titulo": "Source Follower",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "mosswitch",
+     "titulo": "Switch",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "switchfilter",
+     "titulo": "Switchable Filter",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    },
+    {
+     "id": "voltinvert",
+     "titulo": "Voltage Inverter",
+     "estado": "pendiente",
+     "categoria": "MOSFET",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Osciloscopio 2D": {
+   "": [
+    {
+     "id": "plot2d-checker",
+     "titulo": "Checkerboard",
+     "estado": "pendiente",
+     "categoria": "Osciloscopio 2D",
+     "subcategoria": ""
+    },
+    {
+     "id": "plot2d-color",
+     "titulo": "Color Checkerboard",
+     "estado": "pendiente",
+     "categoria": "Osciloscopio 2D",
+     "subcategoria": ""
+    },
+    {
+     "id": "lissa",
+     "titulo": "Lissajous Figures",
+     "estado": "pendiente",
+     "categoria": "Osciloscopio 2D",
+     "subcategoria": ""
+    },
+    {
+     "id": "plot2d-smile",
+     "titulo": "Smiley",
+     "estado": "pendiente",
+     "categoria": "Osciloscopio 2D",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Otros": {
+   "": [
+    {
+     "id": "blank",
+     "titulo": "Blank Circuit",
+     "estado": "pendiente",
+     "categoria": "Otros",
+     "subcategoria": ""
+    }
+   ]
+  },
+  "Otros dispositivos": {
+   "": [
+    {
+     "id": "3motor",
+     "titulo": "3-Phase Motor",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "triacdimmer",
+     "titulo": "DIAC/TRIAC Dimmer",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "gyratorelm",
+     "titulo": "Gyrator",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "latchingrelay",
+     "titulo": "Latching Relay",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "ledarray",
+     "titulo": "LED Array",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": ""
+    },
+    {
+     "id": "ujtosc",
+     "titulo": "Unijunction Oscillator",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": ""
+    }
+   ],
+   "Amplificador Norton": [
+    {
+     "id": "norton-invert",
+     "titulo": "Norton Inverting Amplifier",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Amplificador Norton"
+    },
+    {
+     "id": "norton-noninvert",
+     "titulo": "Norton Noninverting Amplifier",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Amplificador Norton"
+    },
+    {
+     "id": "norton-saw",
+     "titulo": "Norton Sawtooth Oscillator",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Amplificador Norton"
+    }
+   ],
+   "Amplificador operacional de transconductancia (OTA)": [
+    {
+     "id": "ota-gain",
+     "titulo": "LM137000 Gain Oddity",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Amplificador operacional de transconductancia (OTA)"
+    },
+    {
+     "id": "ota-ringmod",
+     "titulo": "OTA Ring Modulator",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Amplificador operacional de transconductancia (OTA)"
+    },
+    {
+     "id": "ota-vcf-single",
+     "titulo": "OTA Single Stage VCF (low pass)",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Amplificador operacional de transconductancia (OTA)"
+    },
+    {
+     "id": "ota-vca",
+     "titulo": "OTA Voltage Controlled Amplifier (VCA)",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Amplificador operacional de transconductancia (OTA)"
+    }
+   ],
+   "Bombilla": [
+    {
+     "id": "wienbridge",
+     "titulo": "Wien Bridge Oscillator",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Bombilla"
+    }
+   ],
+   "Diodos túnel": [
+    {
+     "id": "tdiode",
+     "titulo": "I/V Curve",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Diodos túnel"
+    },
+    {
+     "id": "tdosc",
+     "titulo": "LC Oscillator",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Diodos túnel"
+    },
+    {
+     "id": "tdrelax",
+     "titulo": "Relaxation Oscillator",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Diodos túnel"
+    }
+   ],
+   "Explosor": [
+    {
+     "id": "spark-marx",
+     "titulo": "Marx Generator",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Explosor"
+    },
+    {
+     "id": "spark-sawtooth",
+     "titulo": "Sawtooth Generator",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Explosor"
+    },
+    {
+     "id": "tesla",
+     "titulo": "Tesla Coil",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Explosor"
+    }
+   ],
+   "JFET": [
+    {
+     "id": "jfetamp",
+     "titulo": "Common-Source Amplifier",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "JFET"
+    },
+    {
+     "id": "jfetcurrentsrc",
+     "titulo": "JFET Current Source",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "JFET"
+    },
+    {
+     "id": "jfetfollower",
+     "titulo": "JFET Follower",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "JFET"
+    },
+    {
+     "id": "jfetfollower-nooff",
+     "titulo": "JFET Follower w/zero offset",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "JFET"
+    },
+    {
+     "id": "lambda-diode",
+     "titulo": "Lambda Diode",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "JFET"
+    },
+    {
+     "id": "lambda-diode-osc",
+     "titulo": "Lambda Diode Oscillator",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "JFET"
+    },
+    {
+     "id": "volume",
+     "titulo": "Volume Control",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "JFET"
+    }
+   ],
+   "Memristores": [
+    {
+     "id": "mr-crossbar",
+     "titulo": "Crossbar Memory",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Memristores"
+    },
+    {
+     "id": "mr-sine2",
+     "titulo": "Hard-Switching 1",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Memristores"
+    },
+    {
+     "id": "mr-sine3",
+     "titulo": "Hard-Switching 2",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Memristores"
+    },
+    {
+     "id": "mr",
+     "titulo": "Memristor",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Memristores"
+    },
+    {
+     "id": "mr-sine",
+     "titulo": "Sine Wave",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Memristores"
+    },
+    {
+     "id": "mr-square",
+     "titulo": "Square Wave",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Memristores"
+    },
+    {
+     "id": "mr-triangle",
+     "titulo": "Triangle Wave",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Memristores"
+    }
+   ],
+   "Rectificadores controlados de silicio": [
+    {
+     "id": "scractrig",
+     "titulo": "AC Trigger",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Rectificadores controlados de silicio"
+    },
+    {
+     "id": "scr",
+     "titulo": "SCR",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Rectificadores controlados de silicio"
+    }
+   ],
+   "Transportador de corriente": [
+    {
+     "id": "cc2",
+     "titulo": "CCII+",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Transportador de corriente"
+    },
+    {
+     "id": "cc2imp",
+     "titulo": "CCII+ Implementation",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Transportador de corriente"
+    },
+    {
+     "id": "cc2n",
+     "titulo": "CCII-",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Transportador de corriente"
+    },
+    {
+     "id": "cc2impn",
+     "titulo": "CCII- Implementation",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Transportador de corriente"
+    },
+    {
+     "id": "cciamp",
+     "titulo": "Current Amplifier",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Transportador de corriente"
+    },
+    {
+     "id": "ccdiff",
+     "titulo": "Current Differentiator",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Transportador de corriente"
+    },
+    {
+     "id": "ccint",
+     "titulo": "Current Integrator",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Transportador de corriente"
+    },
+    {
+     "id": "ccitov",
+     "titulo": "Current-Controlled Voltage Source",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Transportador de corriente"
+    },
+    {
+     "id": "ccinductor",
+     "titulo": "Inductor Simulator",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Transportador de corriente"
+    },
+    {
+     "id": "ccvccs",
+     "titulo": "VCCS",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Transportador de corriente"
+    }
+   ],
+   "Tríodos": [
+    {
+     "id": "triodeamp",
+     "titulo": "Amplifier",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Tríodos"
+    },
+    {
+     "id": "triode",
+     "titulo": "Triode",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Tríodos"
+    }
+   ],
+   "Varactor": [
+    {
+     "id": "varactor",
+     "titulo": "Varactor",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Varactor"
+    },
+    {
+     "id": "varactorvco",
+     "titulo": "VCO",
+     "estado": "pendiente",
+     "categoria": "Otros dispositivos",
+     "subcategoria": "Varactor"
+    }
+   ]
+  },
+  "Subcircuitos": {
+   "": [
+    {
+     "id": "adder4-sc",
+     "titulo": "Full Adder (nested)",
+     "estado": "pendiente",
+     "categoria": "Subcircuitos",
+     "subcategoria": ""
+    },
+    {
+     "id": "fullrect-sc",
+     "titulo": "Full Rectifier",
+     "estado": "pendiente",
+     "categoria": "Subcircuitos",
+     "subcategoria": ""
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,271 @@
+/* ==========================================================================
+   CircuitoLab — tokens y base del brand tecnoLSM
+   Paleta, tipografía y reglas tomados de la skill `tecnoLSM-brand`:
+   sin sombras, sin degradados, jerarquía por contraste de superficie.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* --- superficies y texto (OKLCH del brand) --- */
+  --bg: oklch(13% 0.025 255);            --bg-rgb: 11 17 30;
+  --surface: oklch(19% 0.035 255);       --surface-rgb: 27 38 54;
+  --surface-raised: oklch(24% 0.04 250); --surface2-rgb: 44 58 77;
+  --fg: oklch(93% 0.025 220);           --fg-rgb: 221 234 240;
+  --muted: oklch(76% 0.035 230);         --muted-rgb: 148 169 184;
+  --border: oklch(39% 0.04 245);         --border-rgb: 83 103 125;
+
+  /* --- roles de color --- */
+  --accent: oklch(78% 0.14 205);         --accent-rgb: 104 215 232;   /* cian: interacción */
+  --accent-hover: oklch(74% 0.18 335);  --accent-hover-rgb: 226 122 179; /* magenta: hover */
+  --craft: oklch(72% 0.13 55);           --craft-rgb: 197 139 98;     /* cobre: oficio */
+  --danger: oklch(68% 0.18 25);          --danger-rgb: 228 130 120;
+  --success: oklch(76% 0.12 160);
+  --warning: oklch(80% 0.12 85);
+  --on-accent: oklch(14% 0.03 245);      --on-accent-rgb: 11 17 30;
+
+  --accent2-rgb: 79 192 212;
+  --accent-soft-rgb: 155 228 239;
+  --accent-pale-rgb: 184 237 245;
+  --accent-deep-rgb: 22 66 78;
+  --accent-deeper-rgb: 12 41 49;
+  --craft2-rgb: 176 118 77;
+  --danger-soft-rgb: 234 152 148;
+  --danger-deep-rgb: 90 33 28;
+  --danger-deeper-rgb: 56 20 18;
+
+  /* --- tipografía --- */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* --- retícula --- */
+  --max: 1600px;
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --gap: 16px;
+
+  --header-h: 60px;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: oklch(95% 0.012 90);             --bg-rgb: 240 237 227;
+  --surface: oklch(98% 0.006 90);        --surface-rgb: 250 248 242;
+  --surface-raised: oklch(92% 0.012 90); --surface2-rgb: 232 229 219;
+  --fg: oklch(19% 0.035 250);            --fg-rgb: 35 47 64;
+  --muted: oklch(29% 0.03 250);          --muted-rgb: 68 81 94;
+  --border: oklch(78% 0.02 220);         --border-rgb: 194 204 212;
+  --accent: oklch(43% 0.11 205);         --accent-rgb: 29 125 166;
+  --accent-hover: oklch(44% 0.16 335);   --accent-hover-rgb: 176 75 126;
+  --craft: oklch(45% 0.11 55);           --craft-rgb: 163 94 43;
+  --danger: oklch(45% 0.16 25);          --danger-rgb: 179 58 51;
+  --success: oklch(48% 0.1 160);
+  --warning: oklch(52% 0.11 75);
+  --on-accent: oklch(98% 0.006 90);      --on-accent-rgb: 250 248 242;
+  --accent2-rgb: 22 108 148;
+  --accent-soft-rgb: 77 152 182;
+  --accent-pale-rgb: 160 210 226;
+  --accent-deep-rgb: 210 233 240;
+  --accent-deeper-rgb: 230 243 248;
+  --craft2-rgb: 140 80 35;
+  --danger-soft-rgb: 205 92 82;
+  --danger-deep-rgb: 240 218 214;
+  --danger-deeper-rgb: 250 234 230;
+}
+
+/* ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* El atributo hidden debe ganar siempre: si una regla de componente declara
+   display:flex/grid, el [hidden] del HTML deja de ocultarlo. Sin esto, el aviso
+   "Explicación pendiente" se ve junto a un circuito que SÍ tiene explicación. */
+[hidden] { display: none !important; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  background-color: rgb(var(--bg-rgb));
+  color: rgb(var(--fg-rgb));
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  margin: 0;
+  font-weight: 700;
+}
+
+a { color: rgb(var(--accent-rgb)); }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--accent-rgb));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection { background: rgb(var(--accent-rgb) / 0.28); }
+
+/* --- scrollbars discretas --- */
+* { scrollbar-width: thin; scrollbar-color: rgb(var(--border-rgb)) transparent; }
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: rgb(var(--border-rgb));
+  border-radius: 6px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover { background: rgb(var(--muted-rgb)); background-clip: content-box; }
+
+/* --- wordmark --- */
+.wordmark {
+  font: 700 1.25rem var(--font-mono);
+  letter-spacing: 0.06em;
+  color: rgb(var(--fg-rgb));
+  white-space: nowrap;
+}
+.wordmark b { color: rgb(var(--accent-rgb)); font-weight: 700; }
+
+/* --- kicker --- */
+.kicker {
+  font: 600 0.6875rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(var(--muted-rgb));
+}
+
+/* --- iconos MDI --- */
+.ic {
+  width: 1.15em;
+  height: 1.15em;
+  display: inline-block;
+  vertical-align: -0.18em;
+  flex: none;
+  fill: currentColor;
+}
+.ic-lg { width: 1.4em; height: 1.4em; }
+
+/* --- botón base --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 7px 14px;
+  border: 1px solid rgb(var(--border-rgb));
+  border-radius: var(--r-sm);
+  background: rgb(var(--surface-rgb));
+  color: rgb(var(--fg-rgb));
+  font: 600 0.8125rem var(--font-mono);
+  letter-spacing: 0.04em;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
+}
+@media (hover: hover) {
+  .btn:hover {
+    background: rgb(var(--surface2-rgb));
+    border-color: rgb(var(--accent-rgb));
+    color: rgb(var(--accent-rgb));
+    transform: translateY(-2px);
+  }
+}
+.btn:active { transform: translateY(0); }
+.btn-primary {
+  background: rgb(var(--accent-rgb));
+  border-color: rgb(var(--accent-rgb));
+  color: rgb(var(--on-accent-rgb));
+}
+@media (hover: hover) {
+  .btn-primary:hover {
+    background: rgb(var(--accent-hover-rgb));
+    border-color: rgb(var(--accent-hover-rgb));
+    color: rgb(var(--on-accent-rgb));
+  }
+}
+.btn-icon { padding: 7px; min-width: 38px; justify-content: center; }
+
+/* --- fórmula: ficha con color y fracción apilada (CSS puro) --- */
+.fx {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 5px;
+  border-left: 3px solid currentColor;
+  background: rgb(var(--surface-rgb));
+  white-space: nowrap;
+  line-height: 1.4;
+  margin: 2px 0 2px 0;
+}
+/* La ficha es una caja: si va seguida de coma o punto, hay que pegarla al
+   signo para no dejar un hueco ("2 V ,"). */
+.fx + .fx { margin-left: 4px; }
+.fx.fx-1 { color: rgb(var(--accent-rgb)); }
+.fx.fx-2 { color: rgb(var(--craft-rgb)); }
+.fx.fx-3 { color: rgb(var(--accent-hover-rgb)); }
+.fx.fx-4 { color: rgb(var(--accent-rgb)); }
+.fx.fx-5 { color: rgb(var(--craft-rgb)); }
+.fx.fx-6 { color: rgb(var(--accent-hover-rgb)); }
+
+.frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 0.18em;
+  font-size: 0.94em;
+  line-height: 1.15;
+}
+.frac > .num { padding: 0 0.3em; }
+.frac > .den { border-top: 1.5px solid currentColor; padding: 1px 0.3em 0; }
+
+/* --- accesibilidad --- */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: rgb(var(--accent-rgb));
+  color: rgb(var(--on-accent-rgb));
+  border-radius: var(--r-sm);
+  font: 600 0.8125rem var(--font-mono);
+  transition: top 0.15s;
+}
+.skip-link:focus { top: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

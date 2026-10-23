@@ -1,0 +1,488 @@
+/* ==========================================================================
+   CircuitoLab — layout: cabecera, galería, zona de simulación, panel didáctico
+   Rejilla: galería (izq) | simulador (centro) | panel didáctico (der)
+   Por debajo de 1180 px el panel didáctico pasa debajo del simulador.
+   ========================================================================== */
+
+.app {
+  display: grid;
+  grid-template-rows: var(--header-h) 1fr;
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* ---------------------------------------------------------------- cabecera */
+.cabecera {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 20px;
+  background: rgb(var(--surface-rgb));
+  border-bottom: 1px solid rgb(var(--border-rgb));
+  min-width: 0;
+}
+
+.cabecera__marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: none;
+}
+
+.cabecera__logo {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-sm);
+  border: 1px solid rgb(var(--accent-rgb) / 0.3);
+  object-fit: cover;
+  background: rgb(var(--bg-rgb));
+}
+
+.cabecera__titulo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.cabecera__titulo strong {
+  font: 700 1.05rem var(--font-display);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.cabecera__titulo .kicker { font-size: 0.625rem; }
+
+.cabecera__nav {
+  display: flex;
+  gap: 4px;
+  margin-left: 8px;
+}
+.cabecera__nav a {
+  padding: 6px 12px;
+  border-radius: var(--r-sm);
+  font: 600 0.78rem var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgb(var(--muted-rgb));
+  text-decoration: none;
+  transition: color 0.15s, background-color 0.15s;
+}
+@media (hover: hover) {
+  .cabecera__nav a:hover {
+    color: rgb(var(--accent-rgb));
+    background: rgb(var(--surface2-rgb));
+  }
+}
+
+.cabecera__acciones {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+
+/* ---------------------------------------------------------------- cuerpo */
+.cuerpo {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr) 400px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------------- galería */
+.galeria {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: rgb(var(--surface-rgb));
+  border-right: 1px solid rgb(var(--border-rgb));
+}
+
+.galeria__buscador {
+  padding: 14px 14px 10px;
+  border-bottom: 1px solid rgb(var(--border-rgb));
+  flex: none;
+}
+
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgb(var(--bg-rgb));
+  border: 1px solid rgb(var(--border-rgb));
+  border-radius: var(--r-sm);
+  color: rgb(var(--muted-rgb));
+  transition: border-color 0.15s;
+}
+.buscador:focus-within { border-color: rgb(var(--accent-rgb)); }
+.buscador input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: none;
+  outline: none;
+  color: rgb(var(--fg-rgb));
+  font: 400 0.9375rem var(--font-body);
+}
+.buscador input::placeholder { color: rgb(var(--muted-rgb)); }
+
+.galeria__filtros {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 8px 14px;
+  border-bottom: 1px solid rgb(var(--border-rgb));
+  flex: none;
+}
+.recuento {
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgb(var(--muted-rgb));
+}
+
+.galeria__lista {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 10px 24px;
+  min-height: 0;
+}
+
+.grupo { margin-bottom: 6px; }
+.grupo__titulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 9px 6px;
+  border-radius: var(--r-sm);
+  font: 600 0.8125rem var(--font-mono);
+  letter-spacing: 0.03em;
+  color: rgb(var(--fg-rgb));
+  text-align: left;
+  transition: background-color 0.15s;
+}
+@media (hover: hover) { .grupo__titulo:hover { background: rgb(var(--surface2-rgb)); } }
+.grupo__titulo .ic { color: rgb(var(--craft-rgb)); }
+.grupo__titulo .grupo__cuenta {
+  margin-left: auto;
+  font: 500 0.6875rem var(--font-mono);
+  color: rgb(var(--muted-rgb));
+}
+.grupo__titulo[aria-expanded="false"] .ic-flecha { transform: rotate(-90deg); }
+.ic-flecha { transition: transform 0.15s; }
+
+.grupo__hijos { padding-left: 8px; border-left: 1px solid rgb(var(--border-rgb)); margin-left: 8px; }
+.grupo__hijos[hidden] { display: none; }
+
+.circuito {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 9px;
+  border-radius: var(--r-sm);
+  text-align: left;
+  font: 400 0.875rem var(--font-body);
+  /* los 306 circuitos pendientes no se atenúan: con el 84 % de la galería en
+     gris, la lista parecía deshabilitada. El estado lo marca el punto. */
+  color: rgb(var(--fg-rgb));
+  transition: background-color 0.15s, color 0.15s;
+}
+@media (hover: hover) { .circuito:hover { background: rgb(var(--surface2-rgb)); color: rgb(var(--fg-rgb)); } }
+.circuito[aria-current="true"] {
+  background: rgb(var(--accent-deep-rgb));
+  color: rgb(var(--accent-rgb));
+  font-weight: 500;
+}
+.circuito__nombre {
+  flex: 1;
+  min-width: 0;
+  /* dos líneas antes de recortar: los títulos largos en español ("Bobina:
+     corriente y contracorriente") no caben en una sola y se comían con puntos
+     suspensivos. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.35;
+}
+.circuito__punto {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex: none;
+}
+.circuito__punto.completa { background: rgb(var(--success)); }
+.circuito__punto.pendiente { background: rgb(var(--border-rgb)); }
+
+.galeria__vacio {
+  padding: 24px 12px;
+  text-align: center;
+  color: rgb(var(--muted-rgb));
+  font-size: 0.875rem;
+}
+
+/* ---------------------------------------------------------------- simulación */
+.simulador {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  background: rgb(var(--bg-rgb));
+}
+
+.simulador__barra {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgb(var(--border-rgb));
+  flex: none;
+  min-height: 52px;
+}
+
+.simulador__titulo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+.simulador__titulo strong {
+  font: 700 1rem var(--font-display);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.simulador__titulo .kicker { font-size: 0.625rem; }
+
+.simulador__marco {
+  flex: 1;
+  min-height: 0;
+  padding: 12px;
+  display: flex;
+}
+
+/* El lienzo del motor es de fondo oscuro: en modo oscuro se mete en una tarjeta
+   con marco propio para que no quede un recuadro blanco pegado al fondo. */
+.simulador__lienzo {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  background: #000;
+  border: 1px solid rgb(var(--border-rgb));
+  border-radius: var(--r-md);
+  overflow: hidden;
+  position: relative;
+}
+[data-theme="light"] .simulador__lienzo { background: #fff; }
+
+/* Recordatorio de que el simulador se puede editar: el menú del motor está
+   visible (Dibujar / Archivo > Nuevo), pero hay que decirlo. */
+.simulador__ayuda {
+  flex: none;
+  margin: 0 12px 12px;
+  padding: 8px 12px;
+  border: 1px solid rgb(var(--border-rgb));
+  border-radius: var(--r-sm);
+  background: rgb(var(--surface2-rgb) / 0.35);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: rgb(var(--muted-rgb));
+}
+.simulador__ayuda strong { color: rgb(var(--fg-rgb)); font-weight: 600; }
+
+.simulador__lienzo iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.simulador__cargando {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgb(var(--bg-rgb));
+  color: rgb(var(--muted-rgb));
+  font: 500 0.875rem var(--font-mono);
+}
+.simulador__cargando[hidden] { display: none; }
+
+/* ---------------------------------------------------------------- panel didáctico */
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: rgb(var(--surface-rgb));
+  border-left: 1px solid rgb(var(--border-rgb));
+}
+
+.panel__cabecera {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgb(var(--border-rgb));
+  flex: none;
+}
+.panel__cabecera h2 {
+  font-size: 1.05rem;
+  flex: 1;
+  min-width: 0;
+}
+.panel__estado {
+  font: 500 0.6875rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(var(--muted-rgb));
+  padding: 3px 8px;
+  border: 1px solid rgb(var(--border-rgb));
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.panel__estado.completa {
+  color: rgb(var(--success));
+  border-color: rgb(var(--success) / 0.5);
+}
+
+.panel__cuerpo {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 16px 28px;
+  min-height: 0;
+}
+
+/* --- acordeón --- */
+.acordeon { display: flex; flex-direction: column; gap: 8px; }
+
+.bloque {
+  border: 1px solid rgb(var(--border-rgb));
+  border-radius: var(--r-md);
+  background: rgb(var(--bg-rgb));
+  overflow: hidden;
+}
+
+.bloque__cabecera {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 14px;
+  text-align: left;
+  font: 600 0.9375rem var(--font-body);
+  color: rgb(var(--fg-rgb));
+  transition: background-color 0.15s;
+}
+@media (hover: hover) { .bloque__cabecera:hover { background: rgb(var(--surface2-rgb)); } }
+.bloque__cabecera .ic { color: rgb(var(--accent-rgb)); }
+.bloque__cabecera .ic-flecha { color: rgb(var(--muted-rgb)); margin-left: auto; transition: transform 0.15s; }
+.bloque[open] .bloque__cabecera .ic-flecha { transform: rotate(180deg); }
+
+.bloque__contenido {
+  padding: 2px 14px 14px;
+  border-top: 1px solid rgb(var(--border-rgb));
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: rgb(var(--fg-rgb));
+}
+.bloque[hidden] .bloque__contenido { display: none; }
+.bloque__contenido p { margin: 12px 0 0; }
+.bloque__contenido p:first-child { margin-top: 12px; }
+.bloque__contenido ul { margin: 10px 0 0; padding-left: 20px; }
+.bloque__contenido li { margin: 5px 0; }
+
+.pendiente {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  border: 1px dashed rgb(var(--border-rgb));
+  border-radius: var(--r-md);
+  color: rgb(var(--muted-rgb));
+  font-size: 0.9375rem;
+}
+.pendiente .ic { color: rgb(var(--warning)); margin-top: 2px; }
+
+/* --- nota de licencia en el panel --- */
+.panel__nota {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-left: 3px solid rgb(var(--craft-rgb));
+  background: rgb(var(--surface2-rgb) / 0.5);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: rgb(var(--muted-rgb));
+}
+.panel__nota a { color: rgb(var(--accent-rgb)); }
+
+/* ---------------------------------------------------------------- pie */
+.pie {
+  grid-column: 1 / -1;
+  padding: 14px 20px;
+  border-top: 1px solid rgb(var(--border-rgb));
+  background: rgb(var(--surface-rgb));
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: rgb(var(--muted-rgb));
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.pie a { color: rgb(var(--accent-rgb)); }
+.pie__licencia { margin-left: auto; }
+
+/* ---------------------------------------------------------------- responsive */
+@media (max-width: 1400px) {
+  .cuerpo { grid-template-columns: 260px minmax(0, 1fr) 340px; }
+}
+
+@media (max-width: 1180px) {
+  body { overflow: auto; }
+  .app { height: auto; min-height: 100vh; }
+  .cuerpo {
+    grid-template-columns: 250px minmax(0, 1fr);
+    grid-template-rows: minmax(480px, 60vh) auto;
+    overflow: visible;
+  }
+  .galeria { grid-row: 1 / span 2; position: sticky; top: 0; max-height: calc(100vh - var(--header-h)); }
+  .simulador { grid-column: 2; }
+  .panel {
+    grid-column: 2;
+    border-left: none;
+    border-top: 1px solid rgb(var(--border-rgb));
+  }
+  .panel__cuerpo { overflow: visible; }
+  .pie { grid-column: 1 / -1; }
+}
+
+@media (max-width: 820px) {
+  .cuerpo {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+  }
+  /* Orden didáctico en móvil: primero el simulador, luego SU explicación y
+     al final la galería. Antes la galería se interponía entre el circuito y
+     su explicación, que rompe el flujo de la clase. */
+  .simulador { grid-column: 1; grid-row: 1; }
+  .panel { grid-column: 1; grid-row: 2; border-top: 1px solid rgb(var(--border-rgb)); }
+  .galeria {
+    grid-column: 1;
+    grid-row: 3;
+    position: static;
+    max-height: 340px;
+    border-right: none;
+    border-top: 1px solid rgb(var(--border-rgb));
+  }
+  .cabecera__nav { display: none; }
+  .simulador__marco { padding: 8px; }
+  /* El lienzo necesita altura para que el circuito se lea en una pantalla
+     pequeña: el motor dibuja a tamaño fijo y con poca altura no se ve nada. */
+  .simulador { min-height: 62vh; }
+  .simulador__titulo strong { white-space: normal; line-height: 1.3; }
+}

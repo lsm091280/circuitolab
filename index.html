@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CircuitoLab — Simulador de circuitos didáctico</title>
+<meta name="description" content="Simulador de circuitos para clase, con explicaciones de funcionamiento por circuito. Motor CircuitJS1 (Paul Falstad e Iain Sharp), interfaz y contenido didáctico de tecnoLSM.">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<a class="skip-link" href="#simulador">Saltar al simulador</a>
+
+<div class="app">
+
+  <!-- ===================== CABECERA ===================== -->
+  <header class="cabecera">
+    <div class="cabecera__marca">
+      <img class="cabecera__logo" src="assets/img/logo-lm-tecno.png" alt="" width="34" height="34">
+      <div class="cabecera__titulo">
+        <strong>CircuitoLab</strong>
+        <span class="kicker">Simulador didáctico de circuitos</span>
+      </div>
+    </div>
+
+    <nav class="cabecera__nav" aria-label="Secciones">
+      <a href="#galeria">Circuitos</a>
+      <a href="#panel">Explicaciones</a>
+      <a href="#acerca">Acerca de</a>
+    </nav>
+
+    <div class="cabecera__acciones">
+      <button class="btn btn-icon" id="btn-tema" type="button" aria-label="Cambiar a modo claro" title="Cambiar tema">
+        <span id="icono-tema" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== CUERPO ===================== -->
+  <div class="cuerpo">
+
+    <!-- ---------- GALERÍA ---------- -->
+    <aside class="galeria" id="galeria" aria-label="Galería de circuitos">
+      <div class="galeria__buscador">
+        <div class="buscador">
+          <span id="icono-buscar" aria-hidden="true"></span>
+          <input type="search" id="buscar" placeholder="Buscar circuito…" aria-label="Buscar circuito" autocomplete="off">
+        </div>
+      </div>
+      <div class="galeria__filtros" id="filtros" role="status" aria-live="polite"></div>
+      <div class="galeria__lista" id="lista-circuitos"></div>
+    </aside>
+
+    <!-- ---------- SIMULADOR ---------- -->
+    <main class="simulador" id="simulador">
+      <div class="simulador__barra">
+        <div class="simulador__titulo">
+          <strong id="titulo-circuito">Circuito</strong>
+          <span class="kicker" id="subtitulo-circuito">Selecciona un circuito de la galería</span>
+        </div>
+        <button class="btn" id="btn-reiniciar" type="button" title="Volver a empezar el circuito">
+          <span id="icono-reiniciar" aria-hidden="true"></span>
+          <span>Reiniciar</span>
+        </button>
+        <button class="btn" id="btn-descargar" type="button" title="Descargar el esquema de este circuito">
+          <span id="icono-descargar" aria-hidden="true"></span>
+          <span>Esquema</span>
+        </button>
+      </div>
+      <div class="simulador__marco">
+        <div class="simulador__lienzo">
+          <div class="simulador__cargando" id="cargando">
+            <span id="icono-cargando" aria-hidden="true"></span>
+            <span>Cargando motor…</span>
+          </div>
+          <iframe id="lienzo" title="Simulador de circuitos" src="about:blank"></iframe>
+        </div>
+      </div>
+      <p class="simulador__ayuda">
+        ¿Quieres montar tu propio circuito? <strong>Archivo → Nuevo circuito en
+        blanco</strong> para empezar de cero, y añade componentes desde
+        <strong>Dibujar</strong>. El menú del simulador está en castellano.
+      </p>
+    </main>
+
+    <!-- ---------- PANEL DIDÁCTICO ---------- -->
+    <section class="panel" id="panel" aria-label="Explicación del circuito">
+      <div class="panel__cabecera">
+        <span id="icono-panel" aria-hidden="true"></span>
+        <h2>Explicación</h2>
+        <span class="panel__estado" id="estado-panel">—</span>
+      </div>
+      <div class="panel__cuerpo" id="cuerpo-panel">
+        <div class="pendiente" id="sin-explicacion" hidden>
+          <span id="icono-pendiente" aria-hidden="true"></span>
+          <span>Explicación pendiente</span>
+        </div>
+        <div class="acordeon" id="acordeon"></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===================== PIE ===================== -->
+  <footer class="pie" id="acerca">
+    <span>Motor de simulación: CircuitJS1, de Paul Falstad e Iain Sharp
+      (<a href="https://github.com/sharpie7/circuitjs1" target="_blank" rel="noopener">circuitjs1</a>),
+      bajo licencia GPL-2.0. Interfaz, explicaciones y adaptación didáctica: Luis Solá Mantilla. Obra derivada.</span>
+    <span class="pie__licencia">
+      <a href="assets/vendor/circuitjs/COPYING.txt" target="_blank" rel="noopener">Licencia GPL-2.0</a> ·
+      <a href="INFORME.md">Informe técnico</a>
+    </span>
+  </footer>
+
+</div>
+
+<script src="assets/icons/icons.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
