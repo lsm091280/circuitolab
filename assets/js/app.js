@@ -809,8 +809,6 @@ function initAyuda() {
 /* ---------------------------------------------------------------- iconos */
 function initIconos() {
   const mapa = {
-    '#icono-reiniciar': 'mdi:restore',
-    '#icono-descargar': 'mdi:download-outline',
     '#icono-cargando': 'mdi:electric-switch',
     '#icono-panel': 'mdi:book-open-page-variant',
     '#icono-pendiente': 'mdi:clock-outline',
