@@ -656,14 +656,35 @@ Orden sugerido por valor didáctico:
 - **Elegir el circuito por defecto.** Ahora se abre el primero con explicación
   completa (LRC Circuit). Quizá convenga el de Ley de Ohm.
 
-### 11.3 Publicación (pendiente de la decisión de Luis)
+### 11.3 Publicación — HECHA
 
-1. Copia a iCloud.
-2. Repo nuevo de GitHub.
-3. Cloudflare Pages estático, sin comando de build (todo es HTML/CSS/JS).
+| | |
+|---|---|
+| **Producción** | <https://circuitolab.pages.dev> |
+| **Repositorio** | <https://github.com/lsm091280/circuitolab> (**público**) |
+| **Proyecto Pages** | `circuitolab` (cuenta `03c97bdc6707d5aff0b48ab55a3cbd93`) |
+| **Despliegue** | **Automático**: push a `main` → build + deploy (~40 s) |
+| **Build** | ninguno (`build_command` vacío, salida en la raíz del repo) |
+| **Copia oficial** | iCloud `…/Apps web propias/15.Circuitolab` (es también el checkout git) |
 
-> Aviso: al publicar, recuerda: **el conjunto es GPL-2.0** (sección 9). El repo del
-> proyecto debe incluir el código fuente completo de la app, no solo lo generado.
+**Por qué el repo es público y no privado.** El motor es GPL-2.0 y la app se sirve
+en una web abierta: la licencia exige que el código fuente esté disponible para
+quien usa el programa. Un repo privado con la app publicada incumpliría la GPL-2.0.
+No es una preferencia, es la consecuencia de la licencia del motor (sección 9).
+
+**Qué se publica.** La raíz del repo entera: `index.html`, `assets/`, `circuitos/`,
+`_tools/`, `INFORME.md`, `LICENCIA-GPL-2.0.txt` y `robots.txt`. Las herramientas y
+las capturas quedan accesibles en el dominio, lo cual encaja con el espíritu de la
+GPL y permite reproducir el proyecto desde cero.
+
+**`robots.txt`** en la raíz: indexable por buscadores, con
+`Content-Signal: search=yes, ai-train=no` y bloqueo de los rastreadores de
+entrenamiento (GPTBot, ClaudeBot, CCBot, Bytespider…). Permitidos Googlebot, Bingbot
+y los agentes que navegan a petición de una persona.
+
+> Nota técnica: Cloudflare Pages aplica **Pretty URLs**, así que
+> `circuitjs.html` se sirve en `/engine/circuitjs` (308). Funciona igual; solo hay
+> que tenerlo en cuenta al automatizar pruebas contra el dominio.
 
 ---
 
