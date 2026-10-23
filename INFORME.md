@@ -521,6 +521,13 @@ con una resistencia recién creada.
 
 ### 8.2 Lo que NO está verificado
 
+- **El menú del motor no cabe en un móvil de 390 px.** Son 7 entradas (~578 px) en una
+  barra que no se puede desplazar sin romper los desplegables (GWT los posiciona en
+  absoluto dentro de la barra: darle scroll recorta los menús). A 390 px se ve hasta
+  «Opciones»; «Herramientas» y «Ejemplos de circuitos» quedan fuera. **No afecta al uso
+  normal**: los circuitos se eligen en la galería, que sí es responsive. Los menús son
+  para crear circuitos, y dibujar con el dedo no es el caso de uso. En tablet (≥768 px)
+  y en proyector caben enteros y están verificados.
 - **No se ha probado en un aula real** con proyector, luz ambiente y distancia. Las
   decisiones de tamaño de letra (16 px mínimo, 1,5× en proyector) están tomadas del
   criterio del brand, no de una medición con público delante.
