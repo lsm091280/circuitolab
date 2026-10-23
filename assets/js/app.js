@@ -464,6 +464,24 @@ function estilizarMotor() {
       height: 22px !important;
       font-size: 15px !important;
     }
+    /* Los desplegables de las herramientas llevan la MISMA clase que la barra
+       pero sus iconos son SVG con width/height=40 fijos en el HTML: salian al
+       doble que los de la barra. Se igualan al tamano de la barra. */
+    /* :nth-child(n) sube la especificidad para ganar a la regla de los diez
+       primeros iconos de la barra (que si no, lo deja en 22) */
+    .palette-container > span:nth-child(n) {
+      width: 24px !important;
+      height: 27px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      vertical-align: top !important;
+    }
+    .palette-container > span > svg {
+      width: 24px !important;
+      height: 24px !important;
+    }
+
     /* OJO: aqui habia un zoom para hacer sitio. NO se puede usar: los
        desplegables de la paleta son hijos absolutos de esta barra y el zoom
        desplaza su posicion (salian a la izquierda y no se podian pulsar).
