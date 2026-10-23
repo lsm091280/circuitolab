@@ -296,6 +296,13 @@ se comprobó en el Java del motor o se marcó como cálculo declarado.
 
 ### 4.5 Fallos que encontró la verificación (y se corrigieron)
 
+> **Corrección importante (23/10/2026):** la ficha de **Ley de Ohm** describía dos
+> resistencias **en serie** cuando `ohms.txt` son **en paralelo** (5 V sobre 100 Ω y
+> 1 kΩ → 50 mA y 5 mA). Se reescribió completa. El verificador automático comprueba
+> cifras, **no topología**: este fallo lo cazó una captura revisada a ojo. Las demás
+> fichas que hablan de serie/paralelo están pendientes de esa misma revisión manual.
+
+
 Esta es la parte que de verdad da valor al trabajo: **ninguno de estos fallos lo
 vio una lectura del código; los cazó una captura o una medición.**
 
@@ -366,28 +373,42 @@ Se añadieron **65 cadenas** a `locale/locale_es.txt` con
 
 ---
 
-## 6. Galería: las categorías del motor, no los cursos
+## 6. Layout final: el simulador manda, sin galería lateral
 
-Primera versión agrupaba por curso (3º ESO / 4º ESO / Bachillerato). **Descartado
-por indicación de Luis:** se mantiene la agrupación original de la aplicación, que
-es la que el profesorado reconoce.
+La primera versión llevaba una galería a la izquierda agrupada por curso y luego por
+categorías del motor. **Las dos se han quitado por indicación de Luis:** los ejemplos
+ya están en el desplegable *Ejemplos de circuitos* del propio motor, así que la
+galería era una segunda lista de lo mismo robándole ancho al simulador.
 
-- Agrupación **categoría → subcategoría**, exactamente la del `setuplist.txt`.
-- **22 categorías**: Conceptos básicos (10), Corriente alterna (9), Filtros pasivos
-  (17), Otros circuitos pasivos (40), Diodos (20), Transistores (28), MOSFET (21),
-  Temporizador 555 (10), Familias lógicas (26), Lógica combinacional (11),
-  Lógica secuencial (27), Amplificadores operacionales (39), Fuentes controladas (12),
-  Líneas de transmisión (10), Analógico y digital (8), Filtros activos (8),
-  Convertidores de potencia (5), Bucles de enganche de fase (7), Osciloscopio 2D (4),
-  Subcircuitos (2), Otros dispositivos (51), Otros (1).
-- Cada categoría lleva **su icono MDI** y su recuento.
-- El **curso** se conserva como metadato en la cabecera del circuito («Circuito RLC ·
-  3º ESO · Conceptos básicos»): informa sin imponer estructura.
-- Los antiguos chips de filtro por curso se sustituyen por una línea de recuento
-  («366 circuitos · 60 con explicación»), que además anuncia los resultados de la
-  búsqueda (`role="status"`, `aria-live="polite"`).
+- **Dos columnas:** simulador + panel de explicación. A menos de 1180 px el panel se
+  va debajo; el simulador se queda todo el ancho.
+- **Se quitan los tres enlaces superiores** (*Circuitos*, *Explicaciones*, *Acerca de*):
+  no hacían nada. La atribución GPL sigue en el pie, que es donde importa.
 
----
+### 6.1 El problema que esto abría (y cómo se resolvió)
+
+Sin galería, el panel didáctico se quedaba sin saber **qué circuito hay cargado**: el
+motor no expone un evento de cambio ni el nombre del fichero. Sin eso, la capa
+didáctica se moría.
+
+**Solución:** el motor pide cada ejemplo como `circuits/<archivo>.txt`. Como el iframe
+es del mismo origen, `app.js` intercepta `fetch` y `XMLHttpRequest` **dentro del iframe**
+y traduce el nombre del fichero al id del catálogo. El panel se actualiza solo.
+
+Comprobado: abrir «Transistor NPN» desde el menú del motor cambia la cabecera a
+*Transistor NPN* y su explicación aparece sin tocar nada más. Si el circuito es propio
+o importado, el panel lo dice («Circuito propio»).
+
+### 6.2 Los cursores del motor
+
+Se pusieron `hideSidebar=false`. Ese panel es el único sitio donde están los controles
+que pidió Luis: **Reiniciar**, **RUN/Stop**, **Velocidad de simulación**, **Velocidad de
+corriente**, **Brillo** y los cursores propios del circuito (por ejemplo *Tensión* en la
+Ley de Ohm).
+
+- Son **canvas dibujados por el motor**, no `<input type="range">`: no se pueden
+  recolorear por CSS. Se estiliza el marco (fondo, tipografía, botones) y se dejan tal cual.
+- El motor mete dentro un `iframe.html` vacío de 325 px como hueco de branding: se oculta.
 
 ## 7. Decisiones de diseño
 
