@@ -451,6 +451,22 @@ function estilizarMotor() {
       scrollbar-width: thin !important;
     }
     .cl-barra-motor * { color: rgb(${fg}) !important; }
+    /* Iconos de la barra: el motor los dibuja a 36x35 y no caben (854 px de
+       contenido en ~656 de hueco). Se reducen; los 10 primeros -edición y
+       zoom, que no necesitan tanto- más que el resto. */
+    .cl-barra-motor > span {
+      width: 30px !important;
+      height: 30px !important;
+      font-size: 21px !important;
+    }
+    .cl-barra-motor > span:nth-child(-n+10) {
+      width: 24px !important;
+      height: 24px !important;
+      font-size: 16px !important;
+    }
+    /* aun con los iconos reducidos no cabia: un zoom suave (0.88) cierra los
+       ~86 px que faltaban sin dejar ningun icono fuera */
+    .cl-barra-motor { zoom: 0.88; }
     .cl-barra-motor::-webkit-scrollbar { height: 6px; }
     .cl-barra-motor::-webkit-scrollbar-thumb { background: rgb(${borde}); border-radius: 3px; }
     #painel label.topSpace { display: block; }
@@ -719,6 +735,25 @@ function initBotones() {
   }
 }
 
+/* ---------------------------------------------------------------- ayuda */
+function initAyuda() {
+  const panel = $('#ayuda-panel');
+  const abrir = $('#btn-ayuda');
+  const cerrar = $('#btn-ayuda-cerrar');
+  if (!panel || !abrir) return;
+
+  const poner = (visible) => {
+    panel.hidden = !visible;
+    abrir.setAttribute('aria-expanded', String(visible));
+  };
+
+  abrir.addEventListener('click', () => poner(panel.hidden));
+  if (cerrar) cerrar.addEventListener('click', () => poner(false));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !panel.hidden) poner(false);
+  });
+}
+
 /* ---------------------------------------------------------------- iconos */
 function initIconos() {
   const mapa = {
@@ -727,6 +762,8 @@ function initIconos() {
     '#icono-cargando': 'mdi:electric-switch',
     '#icono-panel': 'mdi:book-open-page-variant',
     '#icono-pendiente': 'mdi:clock-outline',
+    '#icono-ayuda': 'mdi:help-circle-outline',
+    '#icono-ayuda-cerrar': 'mdi:close',
   };
   for (const [sel, nombre] of Object.entries(mapa)) {
     const cont = document.querySelector(sel);
@@ -742,6 +779,7 @@ async function main() {
   initTema();
   initIconos();
   initBotones();
+  initAyuda();
 
   try {
     await cargarCatalogo();

@@ -48,6 +48,10 @@
           <span id="icono-reiniciar" aria-hidden="true"></span>
           <span>Reiniciar</span>
         </button>
+        <button class="btn" id="btn-ayuda" type="button" aria-expanded="false" aria-controls="ayuda-panel" title="Cómo se usa el simulador">
+          <span id="icono-ayuda" aria-hidden="true"></span>
+          <span>Ayuda</span>
+        </button>
         <button class="btn" id="btn-descargar" type="button" title="Descargar el esquema de este circuito">
           <span id="icono-descargar" aria-hidden="true"></span>
           <span>Esquema</span>
@@ -60,6 +64,34 @@
             <span>Cargando motor…</span>
           </div>
           <iframe id="lienzo" title="Simulador de circuitos" src="about:blank"></iframe>
+          <!-- panel de ayuda: flota sobre el lienzo, no ocupa sitio cuando está cerrado -->
+          <div class="ayuda-panel" id="ayuda-panel" hidden>
+            <div class="ayuda-panel__cabecera">
+              <strong>Cómo se usa el simulador</strong>
+              <button class="btn btn-icon" id="btn-ayuda-cerrar" type="button" aria-label="Cerrar la ayuda">
+                <span id="icono-ayuda-cerrar" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="ayuda-panel__cuerpo">
+              <p>Esto es un simulador de circuitos electrónicos. Al abrirlo aparece un
+                circuito ya montado y funcionando.</p>
+              <ul>
+                <li><strong>Colores:</strong> verde significa tensión positiva, gris es la
+                  masa y rojo, tensión negativa. Los <strong>puntos amarillos</strong> que se
+                  mueven señalan la corriente.</li>
+                <li><strong>Interruptores:</strong> haz clic sobre uno para abrirlo o cerrarlo.</li>
+                <li><strong>Ver un componente:</strong> pasa el ratón por encima y su
+                  descripción y su estado aparecen abajo a la derecha.</li>
+                <li><strong>Cambiar un valor:</strong> clic con el botón derecho sobre el
+                  componente (en Mac, Control + clic) y elige <em>Editar</em>.</li>
+                <li><strong>Más circuitos:</strong> en el menú
+                  <em>Ejemplos de circuitos</em> hay muchos montajes listos para usar.</li>
+                <li><strong>Montar uno desde cero:</strong> <em>Archivo → Nuevo circuito en
+                  blanco</em> y añade componentes desde <em>Dibujar</em>.</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
     </main>
