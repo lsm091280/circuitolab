@@ -410,6 +410,30 @@ Ley de Ohm).
   recolorear por CSS. Se estiliza el marco (fondo, tipografía, botones) y se dejan tal cual.
 - El motor mete dentro un `iframe.html` vacío de 325 px como hueco de branding: se oculta.
 
+### 6.3 Afinado del 23/10/2026 (segunda vuelta)
+
+- **La barra del simulador ya no muestra el curso.** Se quedó solo con el nombre del
+  circuito y su categoría, y se compactó (de 52 px a lo mínimo: padding 5/12 y título
+  a 15 px). Cada píxel de esa barra es lienzo que se pierde.
+- **Fuera el cajón de ayuda** que había bajo el lienzo.
+- **El padding del panel cortaba los cursores**: el motor dibuja canvas de 166 px fijos
+  y con `padding: 8px 10px` el contenido pedía 186 px en una caja de 165, así que se
+  recortaban por la derecha. Se quitó el padding lateral.
+- **Cursores con el brand.** El motor los pinta en `<canvas>` (carril con flechas en los
+  extremos, relleno rojo, tirador metálico: estética de 2003) y **no se pueden recolorear
+  por CSS**. Solución: se tapan con un `input[type=range]` del brand y se pilotan
+  disparando los mismos eventos de ratón que haría el usuario sobre el canvas original.
+  - La **posición inicial se lee del propio canvas** (se busca hasta dónde llega el
+    relleno rojo), así que cada cursor arranca en su valor real, no en un 50 % falso.
+  - Comprobado que mover el cursor cambia de verdad el circuito (`exportCircuit` cambia).
+  - El envoltorio es idempotente y solo envuelve canvas **con etiqueta**; los canvas
+    sueltos que deja el motor al reconstruir el panel se ocultan.
+  - **Brillo** se pinta apagado y bloqueado porque el motor lo marca deshabilitado.
+- **Pendiente menor:** el botón RUN/STOP sigue en rojo (lo pinta el motor). Se deja así
+  a propósito: rojo = parar es convención y avisa de estado.
+
+---
+
 ## 7. Decisiones de diseño
 
 ### 7.1 Marca y estética
