@@ -466,7 +466,25 @@ function estilizarMotor() {
     }
     /* aun con los iconos reducidos no cabia: un zoom suave (0.88) cierra los
        ~86 px que faltaban sin dejar ningun icono fuera */
-    .cl-barra-motor { zoom: 0.88; }
+    .cl-barra-motor { zoom: 0.85; }
+    /* El rotulo "Modo: ..." que el motor escribe a la derecha de los iconos va
+       con el mismo tamano que el resto y empuja la barra. Se reduce y se le
+       limita el ancho para que nunca desborde. */
+    .cl-barra-motor { font-size: 9.5px !important; }
+    .cl-barra-motor > *:not([class*="cirjsicon"]) {
+      font: 400 9.5px/1.2 'DM Sans', system-ui, sans-serif !important;
+      /* el flex lo aplastaba a 35 px: se le da su ancho y el hueco se gana
+         bajando el zoom de la barra */
+      flex: 0 0 auto;
+      max-width: none;
+      /* el motor le fija un ancho pequeno (38 px) y el texto se derramaba:
+         se le obliga a crecer con su contenido */
+      width: max-content !important;
+      min-width: 0 !important;
+      white-space: nowrap;
+      color: rgb(${tenue}) !important;
+      padding-left: 8px;
+    }
     .cl-barra-motor::-webkit-scrollbar { height: 6px; }
     .cl-barra-motor::-webkit-scrollbar-thumb { background: rgb(${borde}); border-radius: 3px; }
     #painel label.topSpace { display: block; }
