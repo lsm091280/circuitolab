@@ -156,10 +156,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 16px;
+  /* barra minima: cada pixel que se lleva aqui es simulador que se pierde */
+  padding: 5px 12px;
   border-bottom: 1px solid rgb(var(--border-rgb));
   flex: none;
-  min-height: 52px;
+  min-height: 0;
 }
 
 .simulador__titulo {
@@ -169,17 +170,17 @@
   flex: 1;
 }
 .simulador__titulo strong {
-  font: 700 1rem var(--font-display);
+  font: 700 0.9375rem var(--font-display);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.simulador__titulo .kicker { font-size: 0.625rem; }
+.simulador__titulo .kicker { font-size: 0.5625rem; line-height: 1.2; }
 
 .simulador__marco {
   flex: 1;
   min-height: 0;
-  padding: 12px;
+  padding: 8px;
   display: flex;
 }
 
@@ -197,20 +198,6 @@
 }
 [data-theme="light"] .simulador__lienzo { background: #fff; }
 
-/* Recordatorio de que el simulador se puede editar: el menú del motor está
-   visible (Dibujar / Archivo > Nuevo), pero hay que decirlo. */
-.simulador__ayuda {
-  flex: none;
-  margin: 0 12px 12px;
-  padding: 8px 12px;
-  border: 1px solid rgb(var(--border-rgb));
-  border-radius: var(--r-sm);
-  background: rgb(var(--surface2-rgb) / 0.35);
-  font-size: 0.8125rem;
-  line-height: 1.5;
-  color: rgb(var(--muted-rgb));
-}
-.simulador__ayuda strong { color: rgb(var(--fg-rgb)); font-weight: 600; }
 
 .simulador__lienzo iframe {
   width: 100%;

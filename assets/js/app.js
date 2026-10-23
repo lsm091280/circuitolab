@@ -97,7 +97,7 @@ function aplicarTema(tema) {
     boton.setAttribute('aria-label', tema === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
   }
   // el menú del motor se tiñe con el tema del shell (mismo origen)
-  if (ESTADO.api) estilizarMotor();
+  if (ESTADO.api) { estilizarMotor(); modernizarCursores(); }
 }
 
 function initTema() {
@@ -200,7 +200,8 @@ function pintarCabecera(c) {
   const subtitulo = $('#subtitulo-circuito');
   if (titulo) titulo.textContent = nombreCircuito(c);
   if (subtitulo) {
-    const partes = [c.curso, c.categoria];
+    // el curso (3º ESO, 4º ESO...) fuera: Luis no lo quiere en la barra
+    const partes = [c.categoria];
     if (c.subcategoria) partes.push(c.subcategoria);
     subtitulo.textContent = partes.join(' · ');
   }
@@ -233,6 +234,8 @@ function conectarAPI() {
       if (w && w.CircuitJS1) {
         ESTADO.api = w.CircuitJS1;
         estilizarMotor();
+        modernizarCursores();
+        vigilarPanel();
         vigilarCargasDelMotor();
         if (ESTADO.circuitoActual) cargarCircuitoEnMotor(ESTADO.circuitoActual);
         return;
@@ -271,6 +274,35 @@ function estilizarMotor() {
   }
 
   st.textContent = `
+    /* --- cursores propios (el motor los dibuja en canvas, estilo 2003) --- */
+    .cl-cursor-caja { position: relative; width: 166px; height: 22px; margin: 2px 0 0 0; }
+    .cl-cursor-caja > canvas { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+    .cl-cursor {
+      -webkit-appearance: none; appearance: none;
+      position: absolute; inset: 0; width: 100%; height: 22px;
+      margin: 0; padding: 0; background: transparent; cursor: pointer;
+      --p: 50%;
+    }
+    .cl-cursor::-webkit-slider-runnable-track {
+      height: 4px; border-radius: 2px;
+      background: linear-gradient(to right,
+        rgb(${acento}) 0%, rgb(${acento}) var(--p),
+        rgb(${realce}) var(--p), rgb(${realce}) 100%);
+    }
+    .cl-cursor::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 13px; height: 13px; margin-top: -4.5px;
+      border-radius: 50%; background: rgb(${acento});
+      border: 2px solid rgb(${fondo});
+      box-shadow: none;
+    }
+    .cl-cursor--off { opacity: .45; cursor: default; }
+    .cl-cursor--off::-webkit-slider-runnable-track { background: rgb(${realce}); }
+    .cl-cursor--off::-webkit-slider-thumb { background: rgb(${tenue}); }
+    .cl-cursor:focus-visible { outline: none; }
+    .cl-cursor:focus-visible::-webkit-slider-thumb {
+      box-shadow: 0 0 0 3px rgb(${acento} / .35);
+    }
     /* la fuente del brand, cargada también dentro del iframe */
     @font-face {
       font-family: 'DM Sans';
@@ -362,9 +394,13 @@ function estilizarMotor() {
     #painel {
       background: rgb(${fondo}) !important;
       border-left: 1px solid rgb(${borde}) !important;
-      padding: 8px 10px 0 !important;
+      /* sin padding lateral: los cursores del motor miden 166 px fijos y con
+         padding se salian del panel (scrollWidth 186 > 165) y se cortaban */
+      padding: 6px 0 0 0 !important;
       box-sizing: border-box !important;
+      overflow: hidden !important;
     }
+    #painel .topButton { width: 166px !important; }
     #painel .topButton {
       width: 100% !important;
       margin: 0 0 6px 0 !important;
@@ -379,12 +415,15 @@ function estilizarMotor() {
     }
     #painel .topButton:hover { border-color: rgb(${acento}) !important; color: rgb(${acento}) !important; }
     #painel .topSpace {
-      font: 500 9.5px/1.3 'IBM Plex Mono', ui-monospace, monospace !important;
-      letter-spacing: .06em;
+      font: 600 10.5px/1.25 'IBM Plex Mono', ui-monospace, monospace !important;
+      letter-spacing: .05em;
       text-transform: uppercase;
-      color: rgb(${tenue}) !important;
-      margin-top: 8px !important;
+      /* antes iban en color tenue a 9.5 px: no se leian en oscuro */
+      color: rgb(${fg}) !important;
+      margin: 12px 0 5px 0 !important;
+      padding-left: 9px !important;
       white-space: normal !important;
+      border-left: 2px solid rgb(${acento}) !important;
     }
     #painel .topSpace.disabled { opacity: .45; }
     #painel label.topSpace { display: block; }
@@ -394,6 +433,118 @@ function estilizarMotor() {
     /* el lienzo sigue negro: es el color propio del simulador */
     body { margin: 0 !important; }
   `;
+}
+
+/* ------------------------------------------------- cursores del motor */
+/** El motor dibuja sus cursores en <canvas>: carril con flechas en los extremos,
+ *  relleno rojo y tirador metálico. Es estética de 2003 y NO se puede recolorear
+ *  por CSS (los píxeles los pinta el propio motor).
+ *
+ *  Solución: se tapan con un input range del brand y se pilotan disparando los
+ *  mismos eventos de ratón que produciría el usuario sobre el canvas original.
+ *  El motor sigue siendo el dueño del valor; solo cambia la piel. */
+function modernizarCursores() {
+  const iframe = $('#lienzo');
+  let doc;
+  try { doc = iframe.contentDocument; } catch (e) { return; }
+  if (!doc) return;
+  const panel = doc.getElementById('painel');
+  if (!panel) return;
+
+  // idempotente: se deshace el envoltorio anterior antes de volver a envolver.
+  // Sin esto, cada reconstruccion del panel dejaba cursores viejos sin etiqueta.
+  for (const caja of panel.querySelectorAll('.cl-cursor-caja')) {
+    const lienzo = caja.querySelector('canvas');
+    if (lienzo) {
+      delete lienzo.dataset.clCursor;
+      caja.parentNode.insertBefore(lienzo, caja);
+    }
+    caja.remove();
+  }
+
+  for (const c of panel.querySelectorAll('canvas')) {
+    if (c.dataset.clCursor) continue;
+    // solo los cursores que llevan etiqueta del motor; los canvas sueltos son
+    // restos de una reconstruccion a medias y no deben mostrarse
+    const etiquetaEl = c.previousElementSibling;
+    const tieneEtiqueta = etiquetaEl && etiquetaEl.classList &&
+                          etiquetaEl.classList.contains('topSpace');
+    if (!tieneEtiqueta) { c.style.display = 'none'; continue; }
+
+    // posición de partida: hasta dónde llega el relleno rojo del motor
+    const etiqueta = (etiquetaEl && etiquetaEl.textContent || '').trim();
+    let frac = 0.5;
+    try {
+      const datos = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
+      const fila = Math.floor(c.height / 2);
+      let ultimo = -1;
+      for (let x = 0; x < c.width; x++) {
+        const i = (fila * c.width + x) * 4;
+        if (datos[i] > 110 && datos[i + 1] < 100 && datos[i + 2] < 100) ultimo = x;
+      }
+      if (ultimo > 0) frac = ultimo / c.width;
+    } catch (e) { /* canvas opaco: se queda en el centro */ }
+
+    const caja = doc.createElement('div');
+    caja.className = 'cl-cursor-caja';
+    c.parentNode.insertBefore(caja, c);
+    caja.appendChild(c);
+
+    const entrada = doc.createElement('input');
+    entrada.type = 'range';
+    entrada.min = '0';
+    entrada.max = '1000';
+    entrada.value = String(Math.round(frac * 1000));
+    entrada.className = 'cl-cursor';
+    entrada.setAttribute('aria-label', etiqueta || 'Cursor de simulación');
+    entrada.style.setProperty('--p', (frac * 100).toFixed(1) + '%');
+    // Brillo viene deshabilitado en el motor: el cursor debe parecerlo
+    if (etiquetaEl && etiquetaEl.classList.contains('disabled')) {
+      entrada.classList.add('cl-cursor--off');
+      entrada.disabled = true;
+    }
+    caja.appendChild(entrada);
+
+    const mover = (valor) => {
+      const r = c.getBoundingClientRect();
+      if (!r.width) return;
+      const x = r.x + (valor / 1000) * r.width;
+      const y = r.y + r.height / 2;
+      const enviar = (tipo) => c.dispatchEvent(new MouseEvent(tipo, {
+        bubbles: true, cancelable: true, view: doc.defaultView,
+        clientX: x, clientY: y, button: 0, buttons: 1,
+      }));
+      enviar('mousedown');
+      enviar('mousemove');
+      enviar('mouseup');
+    };
+
+    entrada.addEventListener('input', () => {
+      entrada.style.setProperty('--p', (entrada.value / 10).toFixed(1) + '%');
+      mover(Number(entrada.value));
+    });
+
+    c.dataset.clCursor = '1';
+  }
+}
+
+/** El motor reconstruye el panel al cambiar de circuito: hay que reponer los
+ *  cursores cada vez. */
+function vigilarPanel() {
+  const iframe = $('#lienzo');
+  let doc;
+  try { doc = iframe.contentDocument; } catch (e) { return; }
+  const panel = doc && doc.getElementById('painel');
+  if (!panel || panel.__clVigilado) return;
+  panel.__clVigilado = true;
+  const Observador = doc.defaultView.MutationObserver;
+  if (!Observador) return;
+  const obs = new Observador(() => {
+    if (panel.__clPendiente) return;
+    panel.__clPendiente = true;
+    setTimeout(() => { panel.__clPendiente = false; modernizarCursores(); }, 160);
+  });
+  obs.observe(panel, { childList: true, subtree: true });
 }
 
 /** Carga un circuito en el motor por la API (mismo origen). */
