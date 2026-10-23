@@ -15,7 +15,6 @@ const ESTADO = {
   circuitoActual: null,
   api: null,              // window.CircuitJS1 del iframe
   bloquesAbiertos: {},     // { bloqueId: true }
-  busqueda: '',
   cargando: false,
 };
 
@@ -28,8 +27,11 @@ const MOTOR = 'assets/vendor/circuitjs/engine/circuitjs.html';
 // completa de componentes), "Archivo > Nuevo circuito en blanco", deshacer,
 // copiar/pegar, zoom y opciones. Sin él, el alumnado no puede crear circuitos,
 // que es la mitad de la app original. Ocupa 30 px y ya está en español.
-const PARAMETROS_MOTOR = 'hideMenu=false&hideSidebar=true&hideInfoBox=true&lang=es';
+const PARAMETROS_MOTOR = 'hideMenu=false&hideSidebar=false&hideInfoBox=true&lang=es';
 
+// hideSidebar=FALSE: ese panel es el unico sitio donde estan los cursores que
+// pide Luis (tension del circuito, velocidad de corriente, velocidad de
+// simulacion, brillo). Sin el, la app se queda sin controles.
 const BLOQUES = [
   { id: 'como', etiqueta: 'Cómo funciona', icono: 'mdi:information-outline' },
   { id: 'observar', etiqueta: 'Qué observar', icono: 'mdi:eye-outline' },
@@ -120,130 +122,87 @@ async function cargarCatalogo() {
   ESTADO.porId = new Map(ESTADO.catalogo.map((c) => [c.id, c]));
 }
 
-/* ---------------------------------------------------------------- galería */
-/* Un icono por categoría, para que la galería tenga jerarquía visual sin
-   depender de imágenes externas. Las categorías son exactamente las del
-   setuplist del motor (agrupación original de la app de Falstad). */
-const ICONO_CATEGORIA = {
-  'Conceptos básicos': 'mdi:school-outline',
-  'Corriente alterna': 'mdi:sine-wave',
-  'Filtros pasivos': 'mdi:filter-variant',
-  'Filtros activos': 'mdi:filter-variant',
-  'Otros circuitos pasivos': 'mdi:resistor',
-  'Diodos': 'mdi:flash',
-  'Transistores': 'mdi:amplifier',
-  'MOSFET': 'mdi:chip',
-  'Temporizador 555': 'mdi:timer-outline',
-  'Familias lógicas': 'mdi:logic-gate-and',
-  'Lógica combinacional': 'mdi:logic-gate-and',
-  'Lógica secuencial': 'mdi:sync',
-  'Amplificadores operacionales': 'mdi:amplifier',
-  'Líneas de transmisión': 'mdi:transmission-tower',
-  'Analógico y digital': 'mdi:waveform',
-  'Convertidores de potencia': 'mdi:current-dc',
-  'Bucles de enganche de fase': 'mdi:sync',
-  'Osciloscopio 2D': 'mdi:chart-bell-curve',
-  'Subcircuitos': 'mdi:package-variant',
-  'Fuentes controladas': 'mdi:current-dc',
-};
+/* ------------------------------------------------- identificación del circuito */
+/* La galería lateral se quitó por indicación de Luis: los ejemplos ya están en
+   el menú «Ejemplos de circuitos» del motor. Pero el panel didáctico necesita
+   saber QUÉ circuito hay cargado, y el motor no avisa por API.
 
-/** Línea de recuento bajo el buscador. Sustituye a los antiguos filtros por
- *  curso, que agrupaban los ejemplos de una forma que no es la del motor. */
-function actualizarRecuento(nVisibles) {
-  const cont = $('#filtros');
-  if (!cont) return;
-  const total = ESTADO.catalogo.length;
-  const completas = ESTADO.catalogo.filter((c) => c.estado === 'completa').length;
-  cont.innerHTML = '';
-  if (nVisibles === total) {
-    cont.appendChild(crear('span', 'recuento', `${total} circuitos · ${completas} con explicación`));
-  } else {
-    cont.appendChild(crear('span', 'recuento', `${nVisibles} de ${total} circuitos`));
+   Solución: el motor pide cada circuito como `circuits/<archivo>.txt`. Como el
+   iframe es del mismo origen, se interceptan `fetch` y `XMLHttpRequest` dentro
+   del iframe y se traduce el nombre del fichero al id del catálogo. Así el panel
+   sigue al circuito se elija como se elija: menú del motor o importación. */
+const POR_ARCHIVO = new Map();      // 'ohms.txt' -> registro del catálogo
+
+function indexarArchivos() {
+  POR_ARCHIVO.clear();
+  for (const c of ESTADO.catalogo) {
+    if (c.archivo) POR_ARCHIVO.set(c.archivo, c);
   }
 }
 
-function circuitosVisibles() {
-  const q = normalizar(ESTADO.busqueda);
-  return ESTADO.catalogo.filter((c) => {
-    if (!q) return true;
-    const heno = normalizar(
-      (c.titulo || '') + ' ' + (c.titulo_es || '') + ' ' +
-      c.categoria + ' ' + c.subcategoria + ' ' + c.archivo
-    );
-    return heno.includes(q);
-  });
-}
-
-function construirGaleria() {
-  const cont = $('#lista-circuitos');
-  cont.innerHTML = '';
-  const visibles = circuitosVisibles();
-  actualizarRecuento(visibles.length);
-
-  if (!visibles.length) {
-    cont.appendChild(crear('p', 'galeria__vacio', 'Ningún circuito coincide con la búsqueda.'));
+/** El motor ha cargado un fichero de circuito: se sincroniza el panel. */
+function alCargarArchivo(archivo) {
+  const c = POR_ARCHIVO.get(archivo);
+  if (!c) {
+    // circuito propio, subcircuito o fichero importado: no está en el catálogo
+    ESTADO.circuitoActual = null;
+    const titulo = $('#titulo-circuito');
+    const sub = $('#subtitulo-circuito');
+    if (titulo) titulo.textContent = 'Circuito propio';
+    if (sub) sub.textContent = 'Creado o importado. No está en el catálogo.';
+    actualizarPanel();
     return;
   }
+  if (ESTADO.circuitoActual === c.id) return;
+  ESTADO.circuitoActual = c.id;
+  try { localStorage.setItem(CLAVE_ULTIMO, c.id); } catch (e) { /* modo privado */ }
+  pintarCabecera(c);
+  actualizarPanel();
+}
 
-  // Agrupación ORIGINAL del motor: categoría > subcategoría. Así el alumnado
-  // encuentra los ejemplos donde los busca su profesor, no repartidos por curso.
-  const arbol = new Map();
-  for (const c of visibles) {
-    if (!arbol.has(c.categoria)) arbol.set(c.categoria, new Map());
-    const subs = arbol.get(c.categoria);
-    const clave = c.subcategoria || '';
-    if (!subs.has(clave)) subs.set(clave, []);
-    subs.get(clave).push(c);
+/** Engancha los cargadores del motor para enterarse de cada circuito. */
+function vigilarCargasDelMotor() {
+  const iframe = $('#lienzo');
+  let w;
+  try { w = iframe.contentWindow; } catch (e) { return; }
+  if (!w || w.__circuitolabEnganchado) return;
+  w.__circuitolabEnganchado = true;
+
+  const revisar = (url) => {
+    const m = String(url || '').match(/circuits\/([^/?#]+\.txt)/);
+    if (m) alCargarArchivo(m[1]);
+  };
+
+  const fetchOriginal = w.fetch;
+  if (typeof fetchOriginal === 'function') {
+    w.fetch = function (...args) {
+      try {
+        const u = args[0];
+        revisar(typeof u === 'string' ? u : (u && u.url));
+      } catch (e) { /* no romper la carga por un fallo del gancho */ }
+      return fetchOriginal.apply(this, args);
+    };
   }
 
-  for (const [cat, subs] of arbol) {
-    const grupoCat = crear('div', 'grupo');
-    const cabCat = crear('button', 'grupo__titulo');
-    cabCat.type = 'button';
-    cabCat.setAttribute('aria-expanded', 'true');
-    cabCat.appendChild(icono(ICONO_CATEGORIA[cat] || 'mdi:bookshelf'));
-    cabCat.appendChild(crear('span', null, cat));
-    let nCat = 0;
-    for (const lista of subs.values()) nCat += lista.length;
-    cabCat.appendChild(crear('span', 'grupo__cuenta', String(nCat)));
-    const cuerpoCat = crear('div', 'grupo__hijos');
-    grupoCat.appendChild(cabCat);
-    grupoCat.appendChild(cuerpoCat);
-
-    for (const [sub, lista] of subs) {
-      if (sub) {
-        const et = crear('div', 'kicker');
-        et.style.padding = '8px 6px 4px';
-        et.textContent = sub;
-        cuerpoCat.appendChild(et);
-      }
-      for (const c of lista) {
-        const b = crear('button', 'circuito');
-        b.type = 'button';
-        b.dataset.id = c.id;
-        b.setAttribute('aria-current', String(ESTADO.circuitoActual === c.id));
-        const punto = crear('span', 'circuito__punto ' + c.estado);
-        punto.title = c.estado === 'completa' ? 'Explicación completa' : 'Explicación pendiente';
-        b.appendChild(punto);
-        b.appendChild(crear('span', 'circuito__nombre', nombreCircuito(c)));
-        b.addEventListener('click', () => seleccionarCircuito(c.id));
-        cuerpoCat.appendChild(b);
-      }
-    }
-
-    cabCat.addEventListener('click', () => {
-      const abierto = cabCat.getAttribute('aria-expanded') === 'true';
-      cabCat.setAttribute('aria-expanded', String(!abierto));
-      cuerpoCat.hidden = abierto;
-    });
-
-    cont.appendChild(grupoCat);
+  const proto = w.XMLHttpRequest && w.XMLHttpRequest.prototype;
+  if (proto && proto.open) {
+    const abrirOriginal = proto.open;
+    proto.open = function (metodo, url, ...resto) {
+      try { revisar(url); } catch (e) { /* idem */ }
+      return abrirOriginal.call(this, metodo, url, ...resto);
+    };
   }
 }
 
-function marcarCircuitoActivo() {
-  for (const b of document.querySelectorAll('.circuito')) {
-    b.setAttribute('aria-current', String(b.dataset.id === ESTADO.circuitoActual));
+/** Cabecera del simulador: nombre, curso y categoría del circuito. */
+function pintarCabecera(c) {
+  const titulo = $('#titulo-circuito');
+  const subtitulo = $('#subtitulo-circuito');
+  if (titulo) titulo.textContent = nombreCircuito(c);
+  if (subtitulo) {
+    const partes = [c.curso, c.categoria];
+    if (c.subcategoria) partes.push(c.subcategoria);
+    subtitulo.textContent = partes.join(' · ');
   }
 }
 
@@ -274,6 +233,7 @@ function conectarAPI() {
       if (w && w.CircuitJS1) {
         ESTADO.api = w.CircuitJS1;
         estilizarMotor();
+        vigilarCargasDelMotor();
         if (ESTADO.circuitoActual) cargarCircuitoEnMotor(ESTADO.circuitoActual);
         return;
       }
@@ -396,6 +356,41 @@ function estilizarMotor() {
       margin: 4px 0 !important;
     }
     .gwt-MenuBarPopup img { filter: none !important; }
+    /* panel lateral del motor: aqui viven los cursores (tension, velocidad de
+       corriente, velocidad de simulacion, brillo). Los cursores son canvas
+       dibujados por el motor: no se pueden recolorear por CSS, solo el marco. */
+    #painel {
+      background: rgb(${fondo}) !important;
+      border-left: 1px solid rgb(${borde}) !important;
+      padding: 8px 10px 0 !important;
+      box-sizing: border-box !important;
+    }
+    #painel .topButton {
+      width: 100% !important;
+      margin: 0 0 6px 0 !important;
+      padding: 6px 8px !important;
+      background: rgb(${realce}) !important;
+      border: 1px solid rgb(${borde}) !important;
+      border-radius: 6px !important;
+      color: rgb(${fg}) !important;
+      font: 600 10.5px/1.2 'IBM Plex Mono', ui-monospace, monospace !important;
+      letter-spacing: .04em;
+      cursor: pointer;
+    }
+    #painel .topButton:hover { border-color: rgb(${acento}) !important; color: rgb(${acento}) !important; }
+    #painel .topSpace {
+      font: 500 9.5px/1.3 'IBM Plex Mono', ui-monospace, monospace !important;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgb(${tenue}) !important;
+      margin-top: 8px !important;
+      white-space: normal !important;
+    }
+    #painel .topSpace.disabled { opacity: .45; }
+    #painel label.topSpace { display: block; }
+    /* el motor mete un iframe.html vacio de 325 px como hueco de branding:
+       aqui no hay branding que poner, asi que se oculta */
+    #painel > iframe { display: none !important; }
     /* el lienzo sigue negro: es el color propio del simulador */
     body { margin: 0 !important; }
   `;
@@ -489,16 +484,7 @@ function seleccionarCircuito(id) {
   ESTADO.circuitoActual = id;
   try { localStorage.setItem(CLAVE_ULTIMO, id); } catch (e) { /* ignora */ }
 
-  const titulo = $('#titulo-circuito');
-  const subtitulo = $('#subtitulo-circuito');
-  if (titulo) titulo.textContent = nombreCircuito(c);
-  if (subtitulo) {
-    const partes = [c.curso, c.categoria];
-    if (c.subcategoria) partes.push(c.subcategoria);
-    subtitulo.textContent = partes.join(' · ');
-  }
-
-  marcarCircuitoActivo();
+  pintarCabecera(c);
   actualizarPanel();
 
   if (ESTADO.api) {
@@ -507,20 +493,6 @@ function seleccionarCircuito(id) {
     const cargando = $('#cargando');
     if (cargando) cargando.hidden = false;
   }
-}
-
-/* ---------------------------------------------------------------- buscador */
-function initBuscador() {
-  const input = $('#buscar');
-  if (!input) return;
-  let t = null;
-  input.addEventListener('input', () => {
-    clearTimeout(t);
-    t = setTimeout(() => {
-      ESTADO.busqueda = input.value.trim();
-      construirGaleria();
-    }, 140);
-  });
 }
 
 /* ---------------------------------------------------------------- botones */
@@ -559,7 +531,6 @@ function initBotones() {
 /* ---------------------------------------------------------------- iconos */
 function initIconos() {
   const mapa = {
-    '#icono-buscar': 'mdi:magnify',
     '#icono-reiniciar': 'mdi:restore',
     '#icono-descargar': 'mdi:download-outline',
     '#icono-cargando': 'mdi:electric-switch',
@@ -579,20 +550,19 @@ function initIconos() {
 async function main() {
   initTema();
   initIconos();
-  initBuscador();
   initBotones();
 
   try {
     await cargarCatalogo();
   } catch (e) {
     console.error(e);
-    const cont = $('#lista-circuitos');
-    if (cont) cont.innerHTML = '<p class="galeria__vacio">No se pudo cargar el catálogo de circuitos.</p>';
+    const titulo = $('#titulo-circuito');
+    if (titulo) titulo.textContent = 'No se pudo cargar el catálogo';
     return;
   }
 
   ESTADO.bloquesAbiertos = leerJSON(CLAVE_BLOQUES, { como: true, observar: false, prueba: false });
-  construirGaleria();
+  indexarArchivos();
   actualizarPanel();
 
   iniciarMotor();

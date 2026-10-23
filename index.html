@@ -27,12 +27,6 @@
       </div>
     </div>
 
-    <nav class="cabecera__nav" aria-label="Secciones">
-      <a href="#galeria">Circuitos</a>
-      <a href="#panel">Explicaciones</a>
-      <a href="#acerca">Acerca de</a>
-    </nav>
-
     <div class="cabecera__acciones">
       <button class="btn btn-icon" id="btn-tema" type="button" aria-label="Cambiar a modo claro" title="Cambiar tema">
         <span id="icono-tema" aria-hidden="true"></span>
@@ -43,24 +37,12 @@
   <!-- ===================== CUERPO ===================== -->
   <div class="cuerpo">
 
-    <!-- ---------- GALERÍA ---------- -->
-    <aside class="galeria" id="galeria" aria-label="Galería de circuitos">
-      <div class="galeria__buscador">
-        <div class="buscador">
-          <span id="icono-buscar" aria-hidden="true"></span>
-          <input type="search" id="buscar" placeholder="Buscar circuito…" aria-label="Buscar circuito" autocomplete="off">
-        </div>
-      </div>
-      <div class="galeria__filtros" id="filtros" role="status" aria-live="polite"></div>
-      <div class="galeria__lista" id="lista-circuitos"></div>
-    </aside>
-
     <!-- ---------- SIMULADOR ---------- -->
     <main class="simulador" id="simulador">
       <div class="simulador__barra">
         <div class="simulador__titulo">
           <strong id="titulo-circuito">Circuito</strong>
-          <span class="kicker" id="subtitulo-circuito">Selecciona un circuito de la galería</span>
+          <span class="kicker" id="subtitulo-circuito">Elige un circuito en «Ejemplos de circuitos»</span>
         </div>
         <button class="btn" id="btn-reiniciar" type="button" title="Volver a empezar el circuito">
           <span id="icono-reiniciar" aria-hidden="true"></span>

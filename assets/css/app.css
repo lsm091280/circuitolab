@@ -51,26 +51,7 @@
 }
 .cabecera__titulo .kicker { font-size: 0.625rem; }
 
-.cabecera__nav {
-  display: flex;
-  gap: 4px;
-  margin-left: 8px;
-}
-.cabecera__nav a {
-  padding: 6px 12px;
-  border-radius: var(--r-sm);
-  font: 600 0.78rem var(--font-mono);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgb(var(--muted-rgb));
-  text-decoration: none;
-  transition: color 0.15s, background-color 0.15s;
-}
 @media (hover: hover) {
-  .cabecera__nav a:hover {
-    color: rgb(var(--accent-rgb));
-    background: rgb(var(--surface2-rgb));
-  }
 }
 
 .cabecera__acciones {
@@ -84,70 +65,15 @@
 /* ---------------------------------------------------------------- cuerpo */
 .cuerpo {
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr) 400px;
+  /* sin galeria: el simulador se lleva todo el ancho que deja el panel */
+  grid-template-columns: minmax(0, 1fr) 420px;
   min-height: 0;
   overflow: hidden;
 }
 
-/* ---------------------------------------------------------------- galería */
-.galeria {
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  background: rgb(var(--surface-rgb));
-  border-right: 1px solid rgb(var(--border-rgb));
-}
 
-.galeria__buscador {
-  padding: 14px 14px 10px;
-  border-bottom: 1px solid rgb(var(--border-rgb));
-  flex: none;
-}
 
-.buscador {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  background: rgb(var(--bg-rgb));
-  border: 1px solid rgb(var(--border-rgb));
-  border-radius: var(--r-sm);
-  color: rgb(var(--muted-rgb));
-  transition: border-color 0.15s;
-}
-.buscador:focus-within { border-color: rgb(var(--accent-rgb)); }
-.buscador input {
-  flex: 1;
-  min-width: 0;
-  background: none;
-  border: none;
-  outline: none;
-  color: rgb(var(--fg-rgb));
-  font: 400 0.9375rem var(--font-body);
-}
-.buscador input::placeholder { color: rgb(var(--muted-rgb)); }
 
-.galeria__filtros {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  padding: 8px 14px;
-  border-bottom: 1px solid rgb(var(--border-rgb));
-  flex: none;
-}
-.recuento {
-  font: 500 0.6875rem var(--font-mono);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgb(var(--muted-rgb));
-}
-
-.galeria__lista {
-  flex: 1;
-  overflow-y: auto;
-  padding: 8px 10px 24px;
-  min-height: 0;
-}
 
 .grupo { margin-bottom: 6px; }
 .grupo__titulo {
@@ -216,12 +142,6 @@
 .circuito__punto.completa { background: rgb(var(--success)); }
 .circuito__punto.pendiente { background: rgb(var(--border-rgb)); }
 
-.galeria__vacio {
-  padding: 24px 12px;
-  text-align: center;
-  color: rgb(var(--muted-rgb));
-  font-size: 0.875rem;
-}
 
 /* ---------------------------------------------------------------- simulación */
 .simulador {
@@ -439,21 +359,20 @@
 
 /* ---------------------------------------------------------------- responsive */
 @media (max-width: 1400px) {
-  .cuerpo { grid-template-columns: 260px minmax(0, 1fr) 340px; }
+  .cuerpo { grid-template-columns: minmax(0, 1fr) 360px; }
 }
 
 @media (max-width: 1180px) {
   body { overflow: auto; }
   .app { height: auto; min-height: 100vh; }
   .cuerpo {
-    grid-template-columns: 250px minmax(0, 1fr);
-    grid-template-rows: minmax(480px, 60vh) auto;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(540px, 68vh) auto;
     overflow: visible;
   }
-  .galeria { grid-row: 1 / span 2; position: sticky; top: 0; max-height: calc(100vh - var(--header-h)); }
-  .simulador { grid-column: 2; }
+  .simulador { grid-column: 1; }
   .panel {
-    grid-column: 2;
+    grid-column: 1;
     border-left: none;
     border-top: 1px solid rgb(var(--border-rgb));
   }
@@ -471,15 +390,6 @@
      su explicación, que rompe el flujo de la clase. */
   .simulador { grid-column: 1; grid-row: 1; }
   .panel { grid-column: 1; grid-row: 2; border-top: 1px solid rgb(var(--border-rgb)); }
-  .galeria {
-    grid-column: 1;
-    grid-row: 3;
-    position: static;
-    max-height: 340px;
-    border-right: none;
-    border-top: 1px solid rgb(var(--border-rgb));
-  }
-  .cabecera__nav { display: none; }
   .simulador__marco { padding: 8px; }
   /* El lienzo necesita altura para que el circuito se lea en una pantalla
      pequeña: el motor dibuja a tamaño fijo y con poca altura no se ve nada. */
