@@ -433,6 +433,26 @@ function estilizarMotor() {
       border-left: 2px solid rgb(${acento}) !important;
     }
     #painel .topSpace.disabled { opacity: .45; }
+    /* El valor del circuito actual es un div sin clase que el motor pinta en
+       NEGRO: sobre fondo oscuro no se lee. */
+    #painel > div:not(.topSpace):not(.cl-cursor-caja) {
+      color: rgb(${fg}) !important;
+      font: 400 12.5px/1.35 'DM Sans', system-ui, sans-serif !important;
+      padding: 0 9px 2px !important;
+    }
+    /* Barra de herramientas del motor: div fijo de ~836 px con fondo blanco
+       (#f8f8f8). Se pinta con el brand y, si no cabe, se desplaza en vez de
+       desbordar por la derecha. */
+    .cl-barra-motor {
+      background: rgb(${fondo}) !important;
+      max-width: 100% !important;
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      scrollbar-width: thin !important;
+    }
+    .cl-barra-motor * { color: rgb(${fg}) !important; }
+    .cl-barra-motor::-webkit-scrollbar { height: 6px; }
+    .cl-barra-motor::-webkit-scrollbar-thumb { background: rgb(${borde}); border-radius: 3px; }
     #painel label.topSpace { display: block; }
     /* el motor mete un iframe.html vacio de 325 px como hueco de branding:
        aqui no hay branding que poner, asi que se oculta */
@@ -440,6 +460,19 @@ function estilizarMotor() {
     /* el lienzo sigue negro: es el color propio del simulador */
     body { margin: 0 !important; }
   `;
+
+  // marca las barras claras del motor (fondo #f8f8f8 / blanco) para darles el
+  // tratamiento del brand; se hace por color computado porque no tienen clase
+  try {
+    const vista = doc.defaultView;
+    for (const el of doc.querySelectorAll('div')) {
+      if (el.classList.contains('cl-barra-motor')) continue;
+      const fondo = vista.getComputedStyle(el).backgroundColor;
+      if (fondo === 'rgb(248, 248, 248)' || fondo === 'rgb(255, 255, 255)') {
+        el.classList.add('cl-barra-motor');
+      }
+    }
+  } catch (e) { /* si el DOM del motor no está listo, se reintenta al reconectar */ }
 }
 
 /* ------------------------------------------------- cursores del motor */
