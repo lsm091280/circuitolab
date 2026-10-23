@@ -500,12 +500,22 @@ function estilizarMotor() {
       /* el flex lo aplastaba a 35 px: se le da su ancho y el hueco se gana
          bajando el zoom de la barra */
       flex: 0 0 auto;
-      max-width: none;
-      /* el motor le fija un ancho pequeno (38 px) y el texto se derramaba:
-         se le obliga a crecer con su contenido */
-      width: max-content !important;
+      /* el motor le fija un ancho pequeno (38 px) y el texto se derramaba: se le
+         obliga a crecer, pero con un tope y partiendo en DOS LINEAS cuando el
+         texto es largo (p. ej. "MOSFET (canal N): Arrastra y suelta para crear") */
+      width: auto !important;
       min-width: 0 !important;
-      white-space: nowrap;
+      max-width: 150px !important;
+      white-space: normal !important;
+      overflow-wrap: break-word !important;
+      line-height: 1.12 !important;
+      text-align: left !important;
+      align-self: center !important;
+      /* como maximo DOS lineas. -webkit-line-clamp no engancha aqui (el motor
+         fija el display por su cuenta), asi que se limita por altura: 2 lineas
+         de 1.12em a 9.5 px = 21 px. Lo que sobra se recorta. */
+      max-height: 21px !important;
+      overflow: hidden !important;
       color: rgb(${tenue}) !important;
       padding-left: 8px;
     }
