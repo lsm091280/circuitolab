@@ -446,27 +446,28 @@ function estilizarMotor() {
     .cl-barra-motor {
       background: rgb(${fondo}) !important;
       max-width: 100% !important;
-      overflow-x: auto !important;
-      overflow-y: hidden !important;
-      scrollbar-width: thin !important;
+      /* SIN overflow: recortaba los desplegables de las herramientas (salían
+         cortados y desplazados). Los iconos ya caben sin scroll. */
+      overflow: visible !important;
     }
     .cl-barra-motor * { color: rgb(${fg}) !important; }
     /* Iconos de la barra: el motor los dibuja a 36x35 y no caben (854 px de
        contenido en ~656 de hueco). Se reducen; los 10 primeros -edición y
        zoom, que no necesitan tanto- más que el resto. */
     .cl-barra-motor > span {
-      width: 30px !important;
-      height: 30px !important;
-      font-size: 21px !important;
+      width: 27px !important;
+      height: 27px !important;
+      font-size: 19px !important;
     }
     .cl-barra-motor > span:nth-child(-n+10) {
-      width: 24px !important;
-      height: 24px !important;
-      font-size: 16px !important;
+      width: 22px !important;
+      height: 22px !important;
+      font-size: 15px !important;
     }
-    /* aun con los iconos reducidos no cabia: un zoom suave (0.88) cierra los
-       ~86 px que faltaban sin dejar ningun icono fuera */
-    .cl-barra-motor { zoom: 0.85; }
+    /* OJO: aqui habia un zoom para hacer sitio. NO se puede usar: los
+       desplegables de la paleta son hijos absolutos de esta barra y el zoom
+       desplaza su posicion (salian a la izquierda y no se podian pulsar).
+       El hueco se gana reduciendo los iconos, no escalando la barra. */
     /* El rotulo "Modo: ..." que el motor escribe a la derecha de los iconos va
        con el mismo tamano que el resto y empuja la barra. Se reduce y se le
        limita el ancho para que nunca desborde. */
