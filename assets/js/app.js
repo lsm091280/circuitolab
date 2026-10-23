@@ -695,6 +695,7 @@ function construirAcordeon() {
     if (!contenido) continue;
 
     const div = crear('div', 'bloque');
+    div.dataset.bloque = b.id;
     const cab = crear('button', 'bloque__cabecera');
     cab.type = 'button';
     const abierto = !!abiertos[b.id];

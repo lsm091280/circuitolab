@@ -439,3 +439,42 @@
 .ayuda-panel__cuerpo li { margin-bottom: 7px; }
 .ayuda-panel__cuerpo strong { color: rgb(var(--fg-rgb)); font-weight: 600; }
 .ayuda-panel__cuerpo em { color: rgb(var(--accent-rgb)); font-style: normal; }
+
+/* ==========================================================================
+   Reparto de la paleta del brand (revisión 23/10/2026)
+   El cian solo no es el brand: cada color tiene una función.
+     cian    -> interacción, teoría, enlaces, foco
+     cobre   -> oficio, observación, taller (la palabra "Lab" del nombre)
+     magenta -> énfasis puntual (la llamada a la acción de "Prueba tú")
+     ámbar   -> aviso (circuitos sin explicación)
+   ========================================================================== */
+
+/* Marca: "Lab" en cobre, el resto en texto principal */
+.marca__lab { color: rgb(var(--craft-rgb)); }
+
+/* Título del circuito en el simulador: subrayado de oficio */
+#titulo-circuito {
+  border-bottom: 2px solid rgb(var(--craft-rgb));
+  padding-bottom: 1px;
+}
+
+/* Cabecera del panel: el icono del libro en cobre (material didáctico) */
+.panel__cabecera #icono-panel { color: rgb(var(--craft-rgb)); }
+
+/* Cada sección de la ficha con su color y su borde izquierdo */
+.bloque { border-left: 3px solid rgb(var(--border-rgb)); }
+.bloque[data-bloque="como"] { border-left-color: rgb(var(--accent-rgb) / 0.65); }
+.bloque[data-bloque="como"] .bloque__cabecera .ic { color: rgb(var(--accent-rgb)); }
+
+.bloque[data-bloque="observar"] { border-left-color: rgb(var(--craft-rgb) / 0.65); }
+.bloque[data-bloque="observar"] .bloque__cabecera .ic { color: rgb(var(--craft-rgb)); }
+
+.bloque[data-bloque="prueba"] { border-left-color: rgb(var(--accent-hover-rgb) / 0.6); }
+.bloque[data-bloque="prueba"] .bloque__cabecera .ic { color: rgb(var(--accent-hover-rgb)); }
+
+/* Aviso de circuito sin explicación: ámbar del brand, no gris */
+.pendiente { color: rgb(var(--warning-rgb, 225 185 103)); }
+.pendiente #icono-pendiente { color: rgb(var(--warning-rgb, 225 185 103)); }
+
+/* Botón de ayuda: icono de oficio */
+#btn-ayuda #icono-ayuda { color: rgb(var(--craft-rgb)); }
