@@ -319,11 +319,18 @@ function estilizarMotor() {
       background: rgb(${fondo}) !important;
       border-bottom: 1px solid rgb(${borde}) !important;
       padding: 0 4px !important;
+      /* la barra de iconos del motor mide 33 px y la franja 30: se recortaban
+         por abajo en cualquier ancho. Se deja crecer a lo que necesite. */
+      height: auto !important;
+      min-height: 0 !important;
+      overflow: visible !important;
     }
     .gwt-MenuBar td.gwt-MenuItem {
       font: 500 12.5px/1 'DM Sans', system-ui, sans-serif !important;
       color: rgb(${tenue}) !important;
-      padding: 8px 10px !important;
+      /* 6 px arriba y abajo: con 8 la fila medía 33 px en una franja de 30 y
+         los iconos de la barra de herramientas se recortaban por abajo */
+      padding: 6px 10px !important;
       border-radius: 6px !important;
       transition: color .12s, background .12s;
     }
