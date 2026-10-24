@@ -345,9 +345,11 @@
 .pie__licencia { margin-left: auto; }
 
 /* ---------------------------------------------------------------- responsive */
-@media (max-width: 1400px) {
-  .cuerpo { grid-template-columns: minmax(0, 1fr) 322px; }
+.cuerpo.panel-oculto {
+  grid-template-columns: 1fr;
+}
 
+@media (max-width: 1400px) {
 /* En pantallas estrechas el botón de ayuda se queda solo con el icono: con
    texto desbordaba la cabecera. */
 @media (max-width: 640px) {

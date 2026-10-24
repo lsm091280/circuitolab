@@ -13,6 +13,7 @@ const ESTADO = {
   catalogo: [],
   porId: new Map(),
   circuitoActual: null,
+  cargandoCatalogo: false,
   api: null,              // window.CircuitJS1 del iframe
   bloquesAbiertos: {},     // { bloqueId: true }
   cargando: false,
@@ -142,9 +143,11 @@ function indexarArchivos() {
 
 /** El motor ha cargado un fichero de circuito: se sincroniza el panel. */
 function alCargarArchivo(archivo) {
+  ESTADO.cargandoCatalogo = true;
   const c = POR_ARCHIVO.get(archivo);
   if (!c) {
     // circuito propio, subcircuito o fichero importado: no está en el catálogo
+    ESTADO.cargandoCatalogo = false;
     ESTADO.circuitoActual = null;
     const titulo = $('#titulo-circuito');
     const sub = $('#subtitulo-circuito');
@@ -153,11 +156,12 @@ function alCargarArchivo(archivo) {
     actualizarPanel();
     return;
   }
-  if (ESTADO.circuitoActual === c.id) return;
+  if (ESTADO.circuitoActual === c.id) { ESTADO.cargandoCatalogo = false; return; }
   ESTADO.circuitoActual = c.id;
   try { localStorage.setItem(CLAVE_ULTIMO, c.id); } catch (e) { /* modo privado */ }
   pintarCabecera(c);
   actualizarPanel();
+  ESTADO.cargandoCatalogo = false;
 }
 
 /** Engancha los cargadores del motor para enterarse de cada circuito. */
@@ -192,6 +196,30 @@ function vigilarCargasDelMotor() {
       return abrirOriginal.call(this, metodo, url, ...resto);
     };
   }
+
+  /* Watchdog: cuando el usuario hace "Nuevo circuito en blanco" el motor
+     no pide ningún .txt, así que alCargarArchivo no se dispara. Detectamos el
+     cambio sondeando exportCircuit(): si el XML del motor cambia sin que
+     estemos cargando un circuito del catálogo, es un circuito propio y
+     ocultamos el panel didáctico. */
+  let ultimoXml = w.exportCircuit ? w.exportCircuit() : '';
+  setInterval(() => {
+    try {
+      const xml = w.exportCircuit ? w.exportCircuit() : '';
+      if (xml === ultimoXml) return;
+      if (ESTADO.cargandoCatalogo) { ultimoXml = xml; return; }
+      if (xml.trim() && xml !== ultimoXml) {
+        // el motor cambió a un circuito que no viene del catálogo
+        ESTADO.circuitoActual = null;
+        const t = $('#titulo-circuito');
+        const sb = $('#subtitulo-circuito');
+        if (t) t.textContent = 'Circuito propio';
+        if (sb) sb.textContent = 'Creado o importado. No está en el catálogo.';
+        actualizarPanel();
+      }
+      ultimoXml = xml;
+    } catch (e) { /* motor aún no listo */ }
+  }, 600);
 }
 
 /** Cabecera del simulador: nombre, curso y categoría del circuito. */
@@ -238,6 +266,7 @@ function conectarAPI() {
         vigilarPanel();
         vigilarCargasDelMotor();
         if (ESTADO.circuitoActual) cargarCircuitoEnMotor(ESTADO.circuitoActual);
+        initBotones();
         return;
       }
     } catch (e) { /* aún no listo */ }
@@ -729,6 +758,12 @@ function construirAcordeon() {
 
 function actualizarPanel() {
   const c = ESTADO.circuitoActual ? ESTADO.porId.get(ESTADO.circuitoActual) : null;
+  const cuerpo = $('.cuerpo');
+  const panel = $('#panel');
+  const soloSimulador = !c;
+  // circuito propio o importado: ocultamos el panel y el simulador ocupa todo el ancho
+  if (cuerpo) cuerpo.classList.toggle('panel-oculto', soloSimulador);
+  if (panel) panel.hidden = soloSimulador;
   const estado = $('#estado-panel');
   if (estado) {
     estado.textContent = c ? (c.estado === 'completa' ? 'Completa' : 'Pendiente') : '—';
@@ -786,6 +821,19 @@ function initBotones() {
       }
     });
   }
+
+  const nuevo = $('#btn-nuevo');
+  if (nuevo && ESTADO.api) {
+    nuevo.addEventListener('click', () => {
+      try { ESTADO.api.importCircuit('', false); } catch (e) { /* motor aún no listo */ }
+      ESTADO.circuitoActual = null;
+      const t = $('#titulo-circuito');
+      const sb = $('#subtitulo-circuito');
+      if (t) t.textContent = 'Circuito propio';
+      if (sb) sb.textContent = 'Creado o importado. No está en el catálogo.';
+      actualizarPanel();
+    });
+  }
 }
 
 /* ---------------------------------------------------------------- ayuda */
@@ -812,6 +860,7 @@ function initIconos() {
   const mapa = {
     '#icono-cargando': 'mdi:electric-switch',
     '#icono-panel': 'mdi:book-open-page-variant',
+    '#icono-nuevo': 'mdi:file-plus',
     '#icono-pendiente': 'mdi:clock-outline',
     '#icono-ayuda': 'mdi:help-circle-outline',
     '#icono-ayuda-cerrar': 'mdi:close',
@@ -829,7 +878,7 @@ function initIconos() {
 async function main() {
   initTema();
   initIconos();
-  initBotones();
+  // initBotones() 延迟到电机加载后执行，确保 ESTADO.api 存在
   initAyuda();
 
   try {
