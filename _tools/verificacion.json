@@ -1,5 +1,44 @@
 {
  "fallos": [],
- "avisos": [],
- "total": 0
+ "resultados": [
+  {
+   "id": "ohms",
+   "esperado": "Ley de Ohm",
+   "pulsado": true,
+   "titulo": "Ley de Ohm",
+   "bloques": 3,
+   "estado": "Completa",
+   "sub": "Conceptos básicos",
+   "firma": {
+    "pintados": 189,
+    "firma": 36418
+   }
+  },
+  {
+   "id": "npn",
+   "esperado": "Transistor NPN",
+   "pulsado": true,
+   "titulo": "Transistor NPN",
+   "bloques": 3,
+   "estado": "Completa",
+   "sub": "Transistores",
+   "firma": {
+    "pintados": 130,
+    "firma": 33569
+   }
+  },
+  {
+   "id": "norton",
+   "esperado": "Teorema de Norton",
+   "pulsado": true,
+   "titulo": "Teorema de Norton",
+   "bloques": 3,
+   "estado": "Completa",
+   "sub": "Conceptos básicos",
+   "firma": {
+    "pintados": 918,
+    "firma": 14002
+   }
+  }
+ ]
 }

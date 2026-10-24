@@ -13,7 +13,6 @@ const ESTADO = {
   catalogo: [],
   porId: new Map(),
   circuitoActual: null,
-  cargandoCatalogo: false,
   api: null,              // window.CircuitJS1 del iframe
   bloquesAbiertos: {},     // { bloqueId: true }
   cargando: false,
@@ -197,29 +196,7 @@ function vigilarCargasDelMotor() {
     };
   }
 
-  /* Watchdog: cuando el usuario hace "Nuevo circuito en blanco" el motor
-     no pide ningún .txt, así que alCargarArchivo no se dispara. Detectamos el
-     cambio sondeando exportCircuit(): si el XML del motor cambia sin que
-     estemos cargando un circuito del catálogo, es un circuito propio y
-     ocultamos el panel didáctico. */
-  let ultimoXml = w.exportCircuit ? w.exportCircuit() : '';
-  setInterval(() => {
-    try {
-      const xml = w.exportCircuit ? w.exportCircuit() : '';
-      if (xml === ultimoXml) return;
-      if (ESTADO.cargandoCatalogo) { ultimoXml = xml; return; }
-      if (xml.trim() && xml !== ultimoXml) {
-        // el motor cambió a un circuito que no viene del catálogo
-        ESTADO.circuitoActual = null;
-        const t = $('#titulo-circuito');
-        const sb = $('#subtitulo-circuito');
-        if (t) t.textContent = 'Circuito propio';
-        if (sb) sb.textContent = 'Creado o importado. No está en el catálogo.';
-        actualizarPanel();
-      }
-      ultimoXml = xml;
-    } catch (e) { /* motor aún no listo */ }
-  }, 600);
+
 }
 
 /** Cabecera del simulador: nombre, curso y categoría del circuito. */
@@ -822,16 +799,15 @@ function initBotones() {
     });
   }
 
-  const nuevo = $('#btn-nuevo');
-  if (nuevo && ESTADO.api) {
-    nuevo.addEventListener('click', () => {
-      try { ESTADO.api.importCircuit('', false); } catch (e) { /* motor aún no listo */ }
-      ESTADO.circuitoActual = null;
-      const t = $('#titulo-circuito');
-      const sb = $('#subtitulo-circuito');
-      if (t) t.textContent = 'Circuito propio';
-      if (sb) sb.textContent = 'Creado o importado. No está en el catálogo.';
-      actualizarPanel();
+  const explicaciones = $('#btn-explicaciones');
+  if (explicaciones) {
+    explicaciones.addEventListener('click', () => {
+      const panel = $('#panel');
+      const cuerpo = $('.cuerpo');
+      const ocultar = !panel.hidden;
+      panel.hidden = ocultar;
+      if (cuerpo) cuerpo.classList.toggle('panel-oculto', ocultar);
+      explicaciones.setAttribute('aria-expanded', String(!ocultar));
     });
   }
 }
@@ -860,7 +836,7 @@ function initIconos() {
   const mapa = {
     '#icono-cargando': 'mdi:electric-switch',
     '#icono-panel': 'mdi:book-open-page-variant',
-    '#icono-nuevo': 'mdi:file-plus',
+    '#icono-explicaciones': 'mdi:eye-outline',
     '#icono-pendiente': 'mdi:clock-outline',
     '#icono-ayuda': 'mdi:help-circle-outline',
     '#icono-ayuda-cerrar': 'mdi:close',

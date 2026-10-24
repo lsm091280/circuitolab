@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Fórmulas y valores destacados (.fx) + fracciones apiladas (.frac)
+   Regla de Luis (14/10/2026): siempre así, tanto en fórmulas simbólicas
+   como en operaciones numéricas. Ver references/formulas-fichas-y-fracciones.md
+   ========================================================================== */
+
+.fx {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.35;
+  display: inline-block;
+  padding: 1px 5px;
+  border-radius: 4px;
+  border-left: 3px solid currentColor;
+  vertical-align: -1px;
+  white-space: nowrap;
+  /* nunca se parte: si no cabe, que se vea el desbordamiento y lo arreglemos */
+}
+.frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 0.18em;
+  font-size: 0.94em;
+  line-height: 1.15;
+}
+.frac > .num { padding: 0 0.18em; }
+.frac > .den {
+  border-top: 1.5px solid currentColor;
+  padding: 1px 0.18em 0;
+}
+
+/* Colores por variante — dos clases ganan a cualquier span del contenedor */
+.fx.fx-1 { color: rgb(var(--accent-rgb));    background: rgb(var(--accent-rgb) / 0.12); }
+.fx.fx-2 { color: rgb(var(--craft-rgb));     background: rgb(var(--craft-rgb) / 0.12); }
+.fx.fx-3 { color: rgb(var(--accent-hover-rgb)); background: rgb(var(--accent-hover-rgb) / 0.12); }
+.fx.fx-4 { color: rgb(var(--success-rgb));   background: rgb(var(--success-rgb) / 0.12); }
+.fx.fx-5 { color: rgb(var(--warning-rgb));   background: rgb(var(--warning-rgb) / 0.12); }
+.fx.fx-6 { color: rgb(var(--danger-rgb));    background: rgb(var(--danger-rgb) / 0.12); }

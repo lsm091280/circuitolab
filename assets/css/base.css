@@ -60,7 +60,8 @@
   --accent: oklch(43% 0.11 205);         --accent-rgb: 29 125 166;
   --accent-hover: oklch(44% 0.16 335);   --accent-hover-rgb: 176 75 126;
   --craft: oklch(45% 0.11 55);           --craft-rgb: 163 94 43;
-  --danger: oklch(45% 0.16 25);          --danger-rgb: 179 58 51;
+  --danger: oklch(45% 0.16 25);          --danger-rgb: 179 58 51;        --success-rgb: 106 203 154;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
   --success: oklch(48% 0.1 160);
   --warning: oklch(52% 0.11 75);        --warning-rgb: 141 94 0;
   --on-accent: oklch(98% 0.006 90);      --on-accent-rgb: 250 248 242;
